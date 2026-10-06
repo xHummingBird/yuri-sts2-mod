@@ -1,6 +1,6 @@
 ﻿namespace Yuri.YuriCode.Mechanics;
 
-public class IBaseArte
+public interface IBaseArte
 {
-    
+    int ComboGain { get; }
 }

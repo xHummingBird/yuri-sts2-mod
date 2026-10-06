@@ -1,6 +1,8 @@
-﻿namespace Yuri.YuriCode.Nodes;
+﻿using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 
-public class YuriNMerchantCharacter
+namespace Yuri.YuriCode.Nodes;
+
+public partial class YuriNMerchantCharacter : NMerchantCharacter
 {
     
 }

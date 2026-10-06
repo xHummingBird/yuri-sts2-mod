@@ -8,6 +8,6 @@ namespace Yuri.YuriCode.Powers;
 public abstract class YuriPower : CustomPowerModel
 {
     //Loads from Yuri/images/powers/your_power.png
-    public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
+    public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
     public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
 }

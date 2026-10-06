@@ -1,6 +1,8 @@
-﻿namespace Yuri.YuriCode.Relics;
+﻿using MegaCrit.Sts2.Core.Entities.Relics;
 
-public class LimitOctet
+namespace Yuri.YuriCode.Relics;
+
+public class LimitOctet : YuriRelic
 {
-    
+    public override RelicRarity Rarity => RelicRarity.Rare;
 }

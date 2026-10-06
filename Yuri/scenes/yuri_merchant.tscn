@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://6d8u4vco08ol"]
+
+[ext_resource type="Texture2D" uid="uid://bxuf0l4bknsxb" path="res://Yuri/images/spritesheets/idle/idle_00.png" id="1_6v7gg"]
+[ext_resource type="Script" uid="uid://b5jll0od2llmm" path="res://YuriCode/Nodes/YuriNMerchantCharacter.cs" id="1_s1ocr"]
+[ext_resource type="Texture2D" uid="uid://ccwtmr464s0l5" path="res://Yuri/images/spritesheets/shadow.png" id="2_0fn1t"]
+[ext_resource type="Texture2D" uid="uid://bm1w4yth46uik" path="res://Yuri/images/spritesheets/idle/idle_01.png" id="2_s1ocr"]
+[ext_resource type="Texture2D" uid="uid://kwklovcm1bux" path="res://Yuri/images/spritesheets/idle/idle_02.png" id="3_5majx"]
+[ext_resource type="Texture2D" uid="uid://d2onacdoontv4" path="res://Yuri/images/spritesheets/idle/idle_03.png" id="6_afa06"]
+[ext_resource type="Texture2D" uid="uid://dwyau7w3qjxn1" path="res://Yuri/images/spritesheets/idle/idle_04.png" id="7_vbw17"]
+[ext_resource type="Texture2D" uid="uid://dif7jyenluyr5" path="res://Yuri/images/spritesheets/idle/idle_05.png" id="8_lo1af"]
+[ext_resource type="Texture2D" uid="uid://cpktutsr2pygl" path="res://Yuri/images/spritesheets/idle/idle_06.png" id="9_4bpls"]
+[ext_resource type="Texture2D" uid="uid://dnxxw4gr8ywdr" path="res://Yuri/images/spritesheets/idle/idle_07.png" id="10_7msgs"]
+
+[sub_resource type="Animation" id="Animation_ebjc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6v7gg")]
+}
+
+[sub_resource type="Animation" id="Animation_xu5ug"]
+resource_name = "merchant"
+length = 2.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_6v7gg"), ExtResource("2_s1ocr"), ExtResource("3_5majx"), ExtResource("6_afa06"), ExtResource("7_vbw17"), ExtResource("8_lo1af"), ExtResource("9_4bpls"), ExtResource("10_7msgs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qe8jq"]
+_data = {
+&"RESET": SubResource("Animation_ebjc6"),
+&"merchant": SubResource("Animation_xu5ug")
+}
+
+[node name="CloudMerchant" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_s1ocr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 17.333344)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_0fn1t")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+position = Vector2(3.3333335, -107.33333)
+scale = Vector2(-1.3, 1.3)
+texture = ExtResource("1_6v7gg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Visuals")
+libraries = {
+&"": SubResource("AnimationLibrary_qe8jq")
+}
+autoplay = "merchant"

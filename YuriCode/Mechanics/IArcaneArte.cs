@@ -1,6 +1,6 @@
 ﻿namespace Yuri.YuriCode.Mechanics;
 
-public class IArcaneArte
+public interface IArcaneArte
 {
-    
+    int ComboGain { get; }
 }

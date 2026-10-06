@@ -1,6 +1,6 @@
 ﻿namespace Yuri.YuriCode.Cards.Uncommon;
 
-public class Wolf_Strike
+public class WolfStrike
 {
     
 }

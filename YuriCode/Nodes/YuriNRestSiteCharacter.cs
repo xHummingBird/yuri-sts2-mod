@@ -1,6 +1,8 @@
-﻿namespace Yuri.YuriCode.Nodes;
+﻿using MegaCrit.Sts2.Core.Nodes.RestSite;
 
-public class YuriNRestSiteCharacter
+namespace Yuri.YuriCode.Nodes;
+
+public partial class YuriNRestSiteCharacter  : NRestSiteCharacter
 {
     
 }

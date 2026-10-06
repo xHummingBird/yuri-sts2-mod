@@ -1,6 +1,8 @@
-﻿namespace Yuri.YuriCode.Relics;
+﻿using MegaCrit.Sts2.Core.Entities.Relics;
 
-public class Estoc
+namespace Yuri.YuriCode.Relics;
+
+public class Estoc : YuriRelic
 {
-    
+    public override RelicRarity Rarity => RelicRarity.Common;
 }

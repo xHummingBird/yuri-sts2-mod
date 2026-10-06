@@ -1,3 +1,80 @@
 {
+  "YURI-OVERLIMIT_POWER.description": "For 2 turns, your [gold]Arcane Arte[/gold] will always apply its additional effects. You can now perform [gold]Savage Wolf Fury[/gold].",
+  "YURI-OVERLIMIT_POWER.smartDescription": "For {Amount} turns, your [gold]Arcane Arte[/gold] will always apply its additional effects. You can now perform [gold]Savage Wolf Fury[/gold].",
+  "YURI-OVERLIMIT_POWER.title": "Over Limit",
+
+  "YURI-ARCANE_ARTE_BOOST_POWER.description": "Your next Arcane Arte applies its additional effect. Buff is removed at the end of the turn or when you play an attack card that is not an Arcane Arte.",
+  "YURI-ARCANE_ARTE_BOOST_POWER.smartDescription": "Your next Arcane Arte applies its additional effect. Buff is removed at the end of the turn or when you play a attack card that is not an Arcane Arte.",
+  "YURI-ARCANE_ARTE_BOOST_POWER.title": "Boost Arcane Arte",
+
+  "YURI-BRAVE_VESPERIA_POWER.description": "Gain [gold]Energy[/gold] and 5 [gold]Overlimit[/gold] at the start of your turn.",
+  "YURI-BRAVE_VESPERIA_POWER.smartDescription": "Gain {Amount:energyIcons()} and 5 [gold]Overlimit[/gold] at the start of your turn.",
+  "YURI-BRAVE_VESPERIA_POWER.title": "Brave Vesperia",
+
+  "YURI-BLASTIA_ENHANCEMENT_POWER.description": "[gold]Arcane Artes[/gold] deal 50% additional damage while you have {ArcaneIcon}.",
+  "YURI-BLASTIA_ENHANCEMENT_POWER.smartDescription": "[gold]Arcane Artes[/gold] deal [blue]{Amount}%[/blue] additional damage while you have {ArcaneIcon}.",
+  "YURI-BLASTIA_ENHANCEMENT_POWER.title": "Blastia Enhancement",
+
+  "YURI-IMPROVISIONIST_POWER.description": "At the start of your turn, add a random card into your [gold]Hand[/gold]. It gains [gold]Ethereal[/gold].",
+  "YURI-IMPROVISIONIST_POWER.smartDescription": "At the start of your turn, add [blue]{Amount}[/blue] random {Amount:plural:card|cards} into your [gold]Hand[/gold]. {Amount:plural:It gains|They gain} [gold]Ethereal[/gold].",
+  "YURI-IMPROVISIONIST_POWER.title": "Improvisionist",
+
+  "YURI-RECOLLECTION_GUARDIAN_POWER.description": "The first card you play each turn is free.",
+  "YURI-RECOLLECTION_GUARDIAN_POWER.smartDescription": "The first {Amount:plural:card|[blue]{}[/blue] cards} you play each turn {Amount:plural:is|are} free.",
+  "YURI-RECOLLECTION_GUARDIAN_POWER.title": "Recollection Guardian",
+
+  "YURI-KING_OF_COMBOS_POWER.description": "Whenever you play an [gold]Arcane Arte[/gold] while you have {ArcaneIcon}, gain [gold]Strength[/gold].",
+  "YURI-KING_OF_COMBOS_POWER.smartDescription": "Whenever you play an [gold]Arcane Arte[/gold] while you have {ArcaneIcon}, gain [blue]{Amount}[/blue] [gold]Strength[/gold].",
+  "YURI-KING_OF_COMBOS_POWER.title": "King of Combos",
+
+  "YURI-VIGILANTE_POWER.description": "The first time you play a [gold]Base Arte[/gold] each turn, draw a card.",
+  "YURI-VIGILANTE_POWER.smartDescription": "The first time you play a [gold]Base Arte[/gold] each turn, draw [blue]{Amount}[/blue] {Amount:plural:card|cards}.",
+  "YURI-VIGILANTE_POWER.title": "Vigilante",
+
+  "YURI-DARK_LION_POWER.description": "Whenever you play an [gold]Arcane Arte[/gold], deal damage to ALL enemies.",
+  "YURI-DARK_LION_POWER.smartDescription": "Whenever you play an [gold]Arcane Arte[/gold], deal [blue]{Amount}[/blue] damage to ALL enemies.",
+  "YURI-DARK_LION_POWER.title": "Dark Lion",
+
+  "YURI-FATAL_STRIKER_POWER.description": "Whenever Attacks deal damage, apply that much [gold]Fatal Strike[/gold].",
+  "YURI-FATAL_STRIKER_POWER.smartDescription": "Whenever Attacks deal damage, apply{Amount:plural:| [blue]{}[/blue] times} that much [gold]Fatal Strike[/gold].",
+  "YURI-FATAL_STRIKER_POWER.title": "Fatal Striker",
+
+  "YURI-CERTIFIED_SOLDIER_POWER.description": "Strength adds additional damage to Attacks.\nDexterity improves [gold]Block[/gold] gained from cards.",
+  "YURI-CERTIFIED_SOLDIER_POWER.title": "Certified Soldier",
+
+  "YURI-SURVIVOR_POWER.description": "Whenever you apply [gold]Fatal Strike[/gold], gain [gold]Block[/gold].",
+  "YURI-SURVIVOR_POWER.smartDescription": "Whenever you apply [gold]Fatal Strike[/gold], gain [blue]{Amount}[/blue] [gold]Block[/gold].",
+  "YURI-SURVIVOR_POWER.title": "Survivor",
+
+  "YURI-TRUE_KNIGHT_POWER.description": "Whenever you play a [gold]Base Arte[/gold], gain [gold]Vigor[/gold].",
+  "YURI-TRUE_KNIGHT_POWER.smartDescription": "Whenever you play a [gold]Base Arte[/gold], gain [blue]{Amount}[/blue] [gold]Vigor[/gold].",
+  "YURI-TRUE_KNIGHT_POWER.title": "True Knight",
+
+  "YURI-COMBO_FORCE_POWER.description": "The first Attack you play each turn adds a random [gold]Base Arte[/gold] into your [gold]Hand[/gold].",
+  "YURI-COMBO_FORCE_POWER.smartDescription": "The first {Amount:plural:Attack|[blue]{}[/blue] Attacks} you play each turn add {Amount:plural:a random [gold]Base Arte[/gold]|a random [gold]Base Arte[/gold]} into your [gold]Hand[/gold].",
+  "YURI-COMBO_FORCE_POWER.title": "Combo Force",
+
+  "YURI-LUCKY_SOUL_POWER.description": "The first Attack you play each turn is placed on top of your [gold]Draw Pile[/gold].",
+  "YURI-LUCKY_SOUL_POWER.smartDescription": "The first {Amount:plural:Attack|[blue]{}[/blue] Attacks} you play each turn {Amount:plural:is|are} placed on top of your [gold]Draw Pile[/gold].",
+  "YURI-LUCKY_SOUL_POWER.title": "Lucky Soul",
+
+  "YURI-HUNTERS_INSTINCT_POWER.description": "At the start of your turn, apply [gold]Fatal Strike[/gold] to a random enemy.",
+  "YURI-HUNTERS_INSTINCT_POWER.smartDescription": "At the start of your turn, apply [blue]{Amount}[/blue] [gold]Fatal Strike[/gold] to a random enemy.",
+  "YURI-HUNTERS_INSTINCT_POWER.title": "Hunter's Instinct",
+
+  "YURI-COMBO_VOLTAGE_POWER.description": "Every 4 Energy you spend, gain Energy.",
+  "YURI-COMBO_VOLTAGE_POWER.smartDescription": "Every {Energy:energyIcons()} you spend, gain {Amount:energyIcons()}.",
+  "YURI-COMBO_VOLTAGE_POWER.title": "Combo Voltage",
+
+  "YURI-OPPORTUNIST_POWER.description": "At the start of your turn, draw an additional card.",
+  "YURI-OPPORTUNIST_POWER.smartDescription": "At the start of your turn, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}.",
+  "YURI-OPPORTUNIST_POWER.title": "Opportunist",
   
+  "YURI-MYSTIC_ARTE_BOOST_POWER.description": "Increase the damage of [gold]Savage Wolf Fury[/gold].",
+  "YURI-MYSTIC_ARTE_BOOST_POWER.smartDescription": "Increase the damage of [gold]Savage Wolf Fury[/gold].",
+  "YURI-MYSTIC_ARTE_BOOST_POWER.title": "Mystic Arte Boost",
+
+  "YURI-FATAL_STRIKE_POWER.description": "When [gold]Fatal Strike[/gold] is applied from a card and [gold]Fatal Strike[/gold] is at least equal to this creature's HP, it is defeated.",
+  "YURI-FATAL_STRIKE_POWER.smartDescription": "When [gold]Fatal Strike[/gold] is applied from a card and [blue]{Amount}[/blue] [gold]Fatal Strike[/gold] is at least equal to this creature's HP, it is defeated.",
+  "YURI-FATAL_STRIKE_POWER.title": "Fatal Strike"
 }

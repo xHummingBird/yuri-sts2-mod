@@ -1,6 +1,11 @@
-﻿namespace Yuri.YuriCode.Relics;
+﻿using MegaCrit.Sts2.Core.Entities.Relics;
 
-public class VesperiaNoTwo
+namespace Yuri.YuriCode.Relics;
+
+public class VesperiaNoTwo : ArteRelicBase
 {
+    public override RelicRarity Rarity =>
+        RelicRarity.Ancient;
     
+    protected override int BaseOverlimitPerTurn => 7;
 }

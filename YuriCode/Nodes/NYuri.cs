@@ -1,6 +1,8 @@
-﻿namespace Yuri.YuriCode.Nodes;
+﻿using MegaCrit.Sts2.Core.Nodes.Combat;
 
-public class NYuri
+namespace Yuri.YuriCode.Nodes;
+
+public partial class NYuri : NCreatureVisuals
 {
     
 }

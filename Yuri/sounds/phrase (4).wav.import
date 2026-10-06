@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://v5ekm8crrqxw"
+path="res://.godot/imported/phrase (4).wav-2ec2c37df636290d5544e4c673327664.sample"
+
+[deps]
+
+source_file="res://Yuri/sounds/phrase (4).wav"
+dest_files=["res://.godot/imported/phrase (4).wav-2ec2c37df636290d5544e4c673327664.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

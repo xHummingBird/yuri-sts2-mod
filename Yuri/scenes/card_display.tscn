@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://rfgmfrqp140q"]
+
+[ext_resource type="Texture2D" uid="uid://dh0b7uhhpmu4y" path="res://Yuri/images/charui/baseArte.png" id="1_peg7m"]
+[ext_resource type="Script" uid="uid://bkdrwk2oai48v" path="res://YuriCode/Mechanics/CardDisplay.cs" id="1_yxbvv"]
+
+[node name="CardDisplay" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_yxbvv")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_peg7m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="IconLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

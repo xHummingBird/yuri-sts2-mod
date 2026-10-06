@@ -1,3 +1,16 @@
 {
-  
+  "YURI-YURI.aromaPrinciple": "A former Imperial Knight who fights corruption with his own sense of justice.",
+  "YURI-YURI.banter.alive.endTurnPing": "You done over there?",
+  "YURI-YURI.banter.dead.endTurnPing": "I'm kinda busy being dead.",
+  "YURI-YURI.cardsModifierDescription": "Yuri cards will now appear in rewards and shops.",
+  "YURI-YURI.cardsModifierTitle": "Yuri Cards",
+  "YURI-YURI.description": "Chain attacks and [gold]Artes[/gold] together to build Combo. Enter [gold]Over Limit[/gold], and unleash devastating Mystic Arte.",
+  "YURI-YURI.eventDeathPrevention": "Not today. We've still got work to do.",
+  "YURI-YURI.goldMonologue": "Guess crime really does pay.",
+  "YURI-YURI.possessiveAdjective": "his",
+  "YURI-YURI.pronounObject": "him",
+  "YURI-YURI.pronounPossessive": "his",
+  "YURI-YURI.pronounSubject": "he",
+  "YURI-YURI.title": "The Vigilante Yuri",
+  "YURI-YURI.titleObject": "Vigilante Yuri"
 }
