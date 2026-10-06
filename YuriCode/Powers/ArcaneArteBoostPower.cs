@@ -47,7 +47,8 @@ public class ArcaneArteBoostPower : YuriPower
         if (cardPlay.Card is ShiningDragonSwarm)
             return;
 
-        
+        if (cardPlay.Card is StepCombo)
+            return;
         
         await PowerCmd.Remove(this);
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -212,6 +213,9 @@ public abstract class ArteRelicBase : YuriRelic
 
         if (card is IBaseArte)
             await PowerCmd.Apply<ArcaneArteBoostPower>(choiceContext, Owner.Creature, 1, null, card, false);
+        
+        if (Owner.HasPower<OverlimitPower>() && card is IArcaneArte)
+            await PowerCmd.Apply<MysticArteBoostPower>(choiceContext, Owner.Creature, 1, null, card, true);
     }
 
     public override async Task AfterSideTurnEnd(

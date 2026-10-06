@@ -5,5 +5,25 @@
 
   "YURI-SECOND_STAR.description": "Gain 5 [gold]Over Limit[/gold] at the start of each turn.",
   "YURI-SECOND_STAR.flavor": "“The first one is for him...” A sword named with a deep message.",
-  "YURI-SECOND_STAR.title": "Second Star"
+  "YURI-SECOND_STAR.title": "Second Star",
+
+  "YURI-LAST_FENCER.title": "Last Fencer",
+  "YURI-LAST_FENCER.description": "Whenever you play a Base Arte or Arcane Arte, [gold]Upgrade[/gold] it for the remainder of combat.",
+  "YURI-LAST_FENCER.flavor": "",
+
+  "YURI-LIMIT_OCTET.title": "Limit Octet",
+  "YURI-LIMIT_OCTET.description": "[gold]Over Limit[/gold] lasts 1 additional turn.",
+  "YURI-LIMIT_OCTET.flavor": "",
+
+  "YURI-ESTOC.title": "Estoc",
+  "YURI-ESTOC.description": "Start each combat with [blue]10[/blue] [gold]Over Limit[/gold].",
+  "YURI-ESTOC.flavor": "",
+
+  "YURI-ABYSSION.title": "Abyssion",
+  "YURI-ABYSSION.description": "Whenever a non-Minion enemy dies to [gold]Fatal Strike[/gold], heal [green]3[/green] HP.",
+  "YURI-ABYSSION.flavor": "",
+
+  "YURI-BHODI_BLASTIA.title": "Bhodi Blastia",
+  "YURI-BHODI_BLASTIA.description": "At the start of each combat, add a random Base Arte or Arcane Arte into your hand.",
+  "YURI-BHODI_BLASTIA.flavor": ""
 }

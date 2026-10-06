@@ -7,7 +7,7 @@ using Yuri.YuriCode.Extensions;
 
 namespace Yuri.YuriCode.Cards.Common;
 
-public class Backstep() : YuriCard(0, CardType.Skill,
+public class Backstep() : YuriCard(1, CardType.Skill,
     CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, ValueProp.Move)];
@@ -32,6 +32,6 @@ public class Backstep() : YuriCard(0, CardType.Skill,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Block"].UpgradeValueBy(1m);
+        DynamicVars["Block"].UpgradeValueBy(2m);
     }
 }

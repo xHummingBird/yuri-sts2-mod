@@ -20,7 +20,7 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(40m),
-        new ExtraDamageVar(20m),
+        new ExtraDamageVar(18m),
         new CalculatedDamageVar(ValueProp.Move)
             .WithMultiplier((card, _) =>
             {
@@ -30,6 +30,11 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
             }),
 
         new RepeatVar(19)
+    ];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
+        CardKeyword.Exhaust
     ];
 
 

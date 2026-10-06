@@ -27,6 +27,6 @@ public class HyperAbility() : YuriCard(1, CardType.Skill,
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Block"].UpgradeValueBy(4m);
+        DynamicVars["Block"].UpgradeValueBy(3m);
     }
 }

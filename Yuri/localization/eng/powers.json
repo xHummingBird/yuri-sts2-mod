@@ -70,11 +70,19 @@
   "YURI-OPPORTUNIST_POWER.smartDescription": "At the start of your turn, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}.",
   "YURI-OPPORTUNIST_POWER.title": "Opportunist",
   
-  "YURI-MYSTIC_ARTE_BOOST_POWER.description": "Increase the damage of [gold]Savage Wolf Fury[/gold].",
-  "YURI-MYSTIC_ARTE_BOOST_POWER.smartDescription": "Increase the damage of [gold]Savage Wolf Fury[/gold].",
+  "YURI-MYSTIC_ARTE_BOOST_POWER.description": "Increase damage of [gold]Savage Wolf Fury[/gold].",
+  "YURI-MYSTIC_ARTE_BOOST_POWER.smartDescription": "Increase damage of [gold]Savage Wolf Fury[/gold].",
   "YURI-MYSTIC_ARTE_BOOST_POWER.title": "Mystic Arte Boost",
 
   "YURI-FATAL_STRIKE_POWER.description": "When [gold]Fatal Strike[/gold] is applied from a card and [gold]Fatal Strike[/gold] is at least equal to this creature's HP, it is defeated.",
   "YURI-FATAL_STRIKE_POWER.smartDescription": "When [gold]Fatal Strike[/gold] is applied from a card and [blue]{Amount}[/blue] [gold]Fatal Strike[/gold] is at least equal to this creature's HP, it is defeated.",
-  "YURI-FATAL_STRIKE_POWER.title": "Fatal Strike"
+  "YURI-FATAL_STRIKE_POWER.title": "Fatal Strike",
+
+  "YURI-ARTE_HOLD_POWER.description": "Gain [gold]Block[/gold] whenever you play [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold].",
+  "YURI-ARTE_HOLD_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] whenever you play [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold].",
+  "YURI-ARTE_HOLD_POWER.title": "Arte Hold",
+
+  "YURI-GUARD_REFLECT_POWER.description": "This turn, whenever you are attacked, deal damage to the attacker.",
+  "YURI-GUARD_REFLECT_POWER.smartDescription": "This turn, whenever you are attacked, deal {Amount} damage to the attacker.",
+  "YURI-GUARD_REFLECT_POWER.title": "Guard Reflect"
 }

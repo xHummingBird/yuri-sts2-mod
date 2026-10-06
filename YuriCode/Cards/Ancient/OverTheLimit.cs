@@ -8,16 +8,16 @@ using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
 using Yuri.YuriCode.Powers;
 
-namespace Yuri.YuriCode.Cards.Common;
+namespace Yuri.YuriCode.Cards.Ancient;
 
-public class EnGarde() : YuriCard(1, CardType.Skill,
-    CardRarity.Common, TargetType.Self)
+public class OverTheLimit() : YuriCard(1, CardType.Skill,
+    CardRarity.Ancient, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(8, ValueProp.Move),
-        new DynamicVar("Overlimit", 4)
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
+        CardKeyword.Exhaust
     ];
-    
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<OverlimitPower>()
@@ -26,15 +26,11 @@ public class EnGarde() : YuriCard(1, CardType.Skill,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         AudioHelper.PlayRandomDefend();
-        await CommonActions.CardBlock(this, play);
-        
-        var ownerCreature = Owner?.Creature;
-        OverlimitManager.GainOverlimit(Owner, DynamicVars["Overlimit"].IntValue);
+        OverlimitManager.SetOverlimit(Owner, 100);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Block"].UpgradeValueBy(2m);
-        DynamicVars["Overlimit"].UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -20,7 +20,7 @@
   "YURI-CERBERUS_STRIKE.description": "Deal {Damage:diff()} damage. \nDraw {Cards:diff()} {Cards:plural:card|cards}.",
   "YURI-CERBERUS_STRIKE.title": "Cerberus Strike",
 
-  "YURI-FANG_STRIKE.description": "",
+  "YURI-FANG_STRIKE.description": "Deal {Damage:diff()} damage. \nReduce this card's cost to 0 {Energy:energyIcons()}.",
   "YURI-FANG_STRIKE.title": "Fang Strike",
 
   "YURI-AZURE_STORM.description": "Deal {Damage:diff()} damage 2 times. \nIf enemy is close, hit 2 more times.",
@@ -43,7 +43,7 @@
   "YURI-FORWARD_SLASH.title": "Forward Slash",
 
   "YURI-BRAVE_VESPERIA.title": "Brave Vesperia",
-  "YURI-BRAVE_VESPERIA.description": "Gain {Energy:energyIcons()} at the start of every turn.\nGain 5 [gold]Overlimit[/gold] at the start of every turn.",
+  "YURI-BRAVE_VESPERIA.description": "Gain {Energy:energyIcons()} at the start of every turn.\nGain 5 [gold]Over Limit[/gold] at the start of every turn.",
 
   "YURI-BLASTIA_ENHANCEMENT.title": "Blastia Enhancement",
   "YURI-BLASTIA_ENHANCEMENT.description": "[gold]Arcane Artes[/gold] deal 50% additional damage if you play it while you have {ArcaneIcon}.",
@@ -132,10 +132,10 @@
   "YURI-FATAL_FINISH.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to {FatalStrikePercent:diff()}% of the enemy's Max HP.",
   "YURI-FATAL_FINISH.title": "Fatal Finish",
 
-  "YURI-FATAL_STRIKE.description": "Apply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold]. \n[gold]Retreat[/gold].",
+  "YURI-FATAL_STRIKE.description": "Apply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold].",
   "YURI-FATAL_STRIKE.title": "Fatal Strike",
 
-  "YURI-SONIC_THRUST.description": "Deal {Damage:diff()} damage. \nGain {OverlimitPower:diff()} [gold]Overlimit[/gold]. \nIf you moved from your original combat position, gain [gold]Overlimit[/gold] another time.",
+  "YURI-SONIC_THRUST.description": "Deal {Damage:diff()} damage. \nGain {Overlimit:diff()} [gold]Over Limit[/gold]. \nIf you were at original combat position, gain [gold]Over Limit[/gold] another time.",
   "YURI-SONIC_THRUST.title": "Sonic Thrust",
 
   "YURI-THREE_HIT_COMBO.description": "Deal {Damage:diff()} damage 3 times. \nPlay a random [gold]Base Arte[/gold] from your draw pile.",
@@ -144,10 +144,10 @@
   "YURI-VITAL_SLASH.description": "Deal {Damage:diff()} damage. \nDouble the enemy's [gold]Fatal Strike[/gold].",
   "YURI-VITAL_SLASH.title": "Vital Slash",
 
-  "YURI-QUICKSLASH.description": "Deal {Damage:diff()} damage. \nIf this is the first card you play this turn, hit another time.",
+  "YURI-QUICKSLASH.description": "Deal {Damage:diff()} damage. \nIf you were at your original combat position, hit another time.",
   "YURI-QUICKSLASH.title": "Quickslash",
 
-  "YURI-HEAVY_HIT.description": "Deal {Damage:diff()} damage. \nGain {OverlimitPower:diff()} [gold]Overlimit[/gold].",
+  "YURI-HEAVY_HIT.description": "Deal {Damage:diff()} damage. \nGain {Overlimit:diff()} [gold]Over Limit[/gold].",
   "YURI-HEAVY_HIT.title": "Heavy Hit",
 
   "YURI-PRECISE_SLASH.description": "Deal damage equal to the enemy's [gold]Fatal Strike[/gold].",
@@ -174,7 +174,7 @@
   "YURI-BATTLE_RHYTHM.description": "Gain {Block:diff()} [gold]Block[/gold]. \nDraw {Cards:diff()} {Cards:plural:card|cards}.",
   "YURI-BATTLE_RHYTHM.title": "Battle Rhythm",
 
-  "YURI-EN_GARDE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {OverlimitPower:diff()} [gold]Overlimit[/gold].",
+  "YURI-EN_GARDE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {Overlimit:diff()} [gold]Over Limit[/gold].",
   "YURI-EN_GARDE.title": "En Garde",
 
   "YURI-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply {WeakPower:diff()} [gold]Weak[/gold].",
@@ -183,13 +183,13 @@
   "YURI-GUARD_CANCEL.description": "[gold]Retreat[/gold]. \nAdd a random [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold] into your [gold]Hand[/gold]. \nIt is free to play this turn.",
   "YURI-GUARD_CANCEL.title": "Guard Cancel",
 
-  "YURI-FREE_RUN.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {OverlimitPower:diff()} [gold]Overlimit[/gold]. \nNext turn, gain {Energy:energyIcons(2)} and draw 2 cards.",
+  "YURI-FREE_RUN.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {Overlimit:diff()} [gold]Over Limit[/gold]. \nNext turn, gain {Energy:energyIcons()}.",
   "YURI-FREE_RUN.title": "Free Run",
 
   "YURI-FOCUS.description": "Gain {Block:diff()} [gold]Block[/gold]. \n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
   "YURI-FOCUS.title": "Focus",
 
-  "YURI-HYPER_TENSION.description": "Gain {Overlimit:diff()} [gold]Overlimit[/gold].",
+  "YURI-HYPER_TENSION.description": "Gain {Overlimit:diff()} [gold]Over Limit[/gold].",
   "YURI-HYPER_TENSION.title": "Hyper Tension",
 
   "YURI-FATAL_EXCEED.description": "Apply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold] to ALL enemies.",
@@ -213,7 +213,7 @@
   "YURI-RECOVERING_GUARD.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold].",
   "YURI-RECOVERING_GUARD.title": "Recovering Guard",
 
-  "YURI-GUARD_REFLECT.description": "Gain {Block:diff()} [gold]Block[/gold]. \nThis turn, whenever you are attacked, deal {DamageBack:diff()} damage to the attacker.",
+  "YURI-GUARD_REFLECT.description": "Gain {Block:diff()} [gold]Block[/gold]. \nThis turn, whenever you are attacked, deal {GuardReflectPower:diff()} damage to the attacker.",
   "YURI-GUARD_REFLECT.title": "Guard Reflect",
 
   "YURI-STAND_ALONE.description": "Shuffle all your cards into your [gold]Draw Pile[/gold]. \nDraw {Cards:diff()} {Cards:plural:card|cards}.",
@@ -223,5 +223,8 @@
   "YURI-HIT_PLUS.title": "Hit Plus",
 
   "YURI-ITEM_PRO.description": "All [gold]Skills[/gold] in your [gold]Hand[/gold] are free to play this turn.",
-  "YURI-ITEM_PRO.title": "Item Pro"
+  "YURI-ITEM_PRO.title": "Item Pro",
+
+  "YURI-OVER_THE_LIMIT.description": "Enter [gold]Over Limit[/gold].",
+  "YURI-OVER_THE_LIMIT.title": "Over The Limit"
 }

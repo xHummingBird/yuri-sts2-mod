@@ -18,7 +18,7 @@ public class BattleRhythm() : YuriCard(0, CardType.Skill,
     {
         AudioHelper.PlayRandomDefend();
         await CommonActions.CardBlock(this, play);
-        CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()

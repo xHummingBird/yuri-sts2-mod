@@ -183,6 +183,35 @@ public class Yuri : PlaceholderCharacterModel
         );
     }
     
+    public bool IsEnemyNearby(
+        Creature player,
+        float distance = 300f)
+    {
+        var playerNode =
+            NCombatRoom.Instance?.GetCreatureNode(player);
+
+        if (playerNode == null)
+            return false;
+
+        var combatState =
+            CombatManager.Instance?.DebugOnlyGetState();
+
+        if (combatState == null)
+            return false;
+
+        return combatState.HittableEnemies.Any(enemy =>
+        {
+            var enemyNode =
+                NCombatRoom.Instance?.GetCreatureNode(enemy);
+
+            return enemyNode != null &&
+                   Mathf.Abs(
+                       playerNode.GlobalPosition.X -
+                       enemyNode.GlobalPosition.X)
+                   <= distance;
+        });
+    }
+    
     public async Task DashTo(
         Creature player,
         Creature target,
