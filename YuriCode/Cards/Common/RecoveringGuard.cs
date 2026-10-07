@@ -19,6 +19,11 @@ public class RecoveringGuard() : YuriCard(1, CardType.Skill,
             new PowerVar<FatalStrikePower>(7m)
         ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<FatalStrikePower>()
+    ];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         AudioHelper.PlayRandomDefend();

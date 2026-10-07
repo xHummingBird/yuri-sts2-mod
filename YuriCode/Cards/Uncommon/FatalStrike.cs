@@ -27,7 +27,7 @@ public class FatalStrike() : YuriCard(1, CardType.Skill,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<FatalStrikePower>(choiceContext, Owner.Creature, DynamicVars["FatalStrikePower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<FatalStrikePower>(choiceContext, play.Target, DynamicVars["FatalStrikePower"].BaseValue, Owner.Creature, this);
         
         var ownerCreature = Owner?.Creature;
         

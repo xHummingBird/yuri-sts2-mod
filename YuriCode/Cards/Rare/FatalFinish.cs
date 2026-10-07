@@ -70,7 +70,7 @@ public class FatalFinish() : YuriCard(1, CardType.Attack,
             .Execute(choiceContext);
         
         var enemyFatalStrike = play.Target.MaxHp() * 0.05m;
-        await PowerCmd.Apply<FatalStrikePower>(choiceContext, Owner.Creature, enemyFatalStrike, Owner.Creature, this);
+        await PowerCmd.Apply<FatalStrikePower>(choiceContext, play.Target, enemyFatalStrike, Owner.Creature, this);
         await FatalStrikePower.CheckAfterCardApplication(
             play.Target
         );

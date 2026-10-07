@@ -11,7 +11,6 @@ namespace Yuri.YuriCode.Cards.Common;
 public class SeveringFang() : YuriCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.AnyEnemy)
 {
-    
     public int ComboGain => 2;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => 
