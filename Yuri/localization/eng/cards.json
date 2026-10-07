@@ -35,7 +35,7 @@
   "YURI-HIT_AND_RUN.description": "Deal {Damage:diff()} damage. \n[gold]Retreat.[/gold]",
   "YURI-HIT_AND_RUN.title": "Hit And Run",
 
-  "YURI-SHINING_DRAGON_SWARM.description": "Deal {Damage:diff()} damage. \nCosts 1 less {Energy:energyIcons()} for each [gold]Attack[/gold] played this turn. \n{ArcaneIcon}: Does not consume {ArcaneIcon}.",
+  "YURI-SHINING_DRAGON_SWARM.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Deal damage equal to the enemy's [gold]Fatal Strike[/gold].",
   "YURI-SHINING_DRAGON_SWARM.title": "Shining Dragon Swarm",
 
   "YURI-FORWARD_SLASH.description": "Deals {Damage:diff()} damage. \nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold].",
@@ -85,7 +85,7 @@
   "YURI-HUNTERS_INSTINCT.description": "At the start of your turn, apply {HuntersInstinctPower:diff()} [gold]Fatal Strike[/gold] to a random enemy.",
 
   "YURI-COMBO_VOLTAGE.title": "Combo Voltage",
-  "YURI-COMBO_VOLTAGE.description": "Every {energyPrefix:energyIcons(4)} you spend, gain {energyPrefix:energyIcons(1)}.",
+  "YURI-COMBO_VOLTAGE.description": "Every 4 {energyPrefix:energyIcons(1)} you spend, gain {energyPrefix:energyIcons(1)}.",
 
   "YURI-OPPORTUNIST.title": "Opportunist",
   "YURI-OPPORTUNIST.description": "At the start of your turn, draw {OpportunistPower:diff()} additional {OpportunistPower:plural:card|cards}.",
@@ -108,10 +108,10 @@
   "YURI-LONE_WOLF_CHARGE.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} for each [gold]Skill[/gold] played this turn. \n{ArcaneIcon}: Apply {WeakPower:diff()} [gold]Weak[/gold].",
   "YURI-LONE_WOLF_CHARGE.title": "Lone Wolf Charge",
 
-  "YURI-FINAL_GALE.description": "[gold]Retreat[/gold]. \nDeal {CalculatedDamage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} each time you play a [gold]Base Arte[/gold] this combat. \n{ArcaneIcon}: Deal additional damage for each [gold]Arcane Arte[/gold] played this combat.",
+  "YURI-FINAL_GALE.description": "[gold]Retreat[/gold]. \nDeal {CalculatedDamage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} each time you play a [gold]Base Arte[/gold] this combat. \n{ArcaneIcon}: Deal 1 additional damage for each [gold]Arcane Arte[/gold] played this combat.",
   "YURI-FINAL_GALE.title": "Final Gale",
 
-  "YURI-DRAGON_SWARM.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Deal damage equal to the enemy's [gold]Fatal Strike[/gold].",
+  "YURI-DRAGON_SWARM.description": "Deal {Damage:diff()} damage. \nCosts 1 less {Energy:energyIcons()} for each [gold]Attack[/gold] played this turn. \n{ArcaneIcon}: Your next Skill costs 0 {Energy:energyIcons()}.",
   "YURI-DRAGON_SWARM.title": "Dragon Swarm",
 
   "YURI-RAGING_BLAST.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
@@ -129,7 +129,7 @@
   "YURI-DESTRUCTION_FIELD.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to damage dealt.",
   "YURI-DESTRUCTION_FIELD.title": "Destruction Field",
 
-  "YURI-FATAL_FINISH.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to {FatalStrikePercent:diff()}% of the enemy's Max HP.",
+  "YURI-FATAL_FINISH.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to 5% of the enemy's Max HP.",
   "YURI-FATAL_FINISH.title": "Fatal Finish",
 
   "YURI-FATAL_STRIKE.description": "Apply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold].",
@@ -165,7 +165,7 @@
   "YURI-ITEM_HATER.description": "Discard your [gold]Hand[/gold]. \nDraw that many cards.",
   "YURI-ITEM_HATER.title": "Item Hater",
 
-  "YURI-BERSERKER.description": "All cards in your [gold]Hand[/gold] are free to play this turn. \nYou cannot gain [gold]Block[/gold] from cards this turn.",
+  "YURI-BERSERKER.description": "All cards in your [gold]Hand[/gold] are free to play this turn.",
   "YURI-BERSERKER.title": "Berserker",
 
   "YURI-STEEL.description": "Gain {Block:diff()} [gold]Block[/gold]. \nIf you are in your original combat position, gain {VigorPower:diff()} [gold]Vigor[/gold].",

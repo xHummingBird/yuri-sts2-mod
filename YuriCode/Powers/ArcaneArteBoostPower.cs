@@ -44,7 +44,7 @@ public class ArcaneArteBoostPower : YuriPower
         if (cardPlay.Card is ThreeHitCombo)
             return;
 
-        if (cardPlay.Card is ShiningDragonSwarm)
+        if (cardPlay.Card is DragonSwarm)
             return;
 
         if (cardPlay.Card is StepCombo)

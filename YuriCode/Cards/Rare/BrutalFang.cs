@@ -14,7 +14,7 @@ using Yuri.YuriCode.Powers;
 namespace Yuri.YuriCode.Cards.Uncommon;
 
 public class BrutalFang() : YuriCard(0, CardType.Attack,
-    CardRarity.Rare, TargetType.AnyEnemy), IArcaneArte
+    CardRarity.Uncommon, TargetType.AnyEnemy), IArcaneArte
 {
     public int ComboGain => 9;
     protected override bool HasEnergyCostX => true;

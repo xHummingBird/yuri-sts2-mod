@@ -10,7 +10,7 @@ using Yuri.YuriCode.Extensions;
 namespace Yuri.YuriCode.Cards.Common;
 
 public class Steel() : YuriCard(1, CardType.Skill,
-    CardRarity.Basic, TargetType.Self)
+    CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
         [

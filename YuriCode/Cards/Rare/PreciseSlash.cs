@@ -14,11 +14,6 @@ namespace Yuri.YuriCode.Cards.Rare;
 public class PreciseSlash() : YuriCard(2, CardType.Attack,
     CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
-    [
-        new DamageVar(6, ValueProp.Move)
-    ];
-    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<FatalStrikePower>()

@@ -18,11 +18,11 @@ namespace Yuri.YuriCode.Cards.Rare;
 public class ShiningDragonSwarm() : YuriCard(1, CardType.Attack,
     CardRarity.Rare, TargetType.AnyEnemy), IArcaneArte
 {
-    public int ComboGain => 6;
+    public int ComboGain => 8;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(9m, ValueProp.Move),
+        new DamageVar(22m, ValueProp.Move),
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -139,6 +139,6 @@ public class ShiningDragonSwarm() : YuriCard(1, CardType.Attack,
     
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(6);
     }
 }

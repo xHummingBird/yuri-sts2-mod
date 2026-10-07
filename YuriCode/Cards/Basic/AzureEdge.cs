@@ -19,7 +19,7 @@ public class AzureEdge() : YuriCard(0, CardType.Attack,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new DamageVar(4, ValueProp.Move)
+        new DamageVar(3, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

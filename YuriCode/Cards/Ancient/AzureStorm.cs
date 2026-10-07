@@ -19,7 +19,7 @@ public class AzureStorm() : YuriCard(0, CardType.Attack,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new DamageVar(4, ValueProp.Move)
+        new DamageVar(5, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
