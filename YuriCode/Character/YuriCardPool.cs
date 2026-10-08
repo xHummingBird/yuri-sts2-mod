@@ -16,9 +16,9 @@ public class YuriCardPool : CustomCardPoolModel
     They are applied as a shader onto an already colored image,
     so it may take some experimentation to find a color you like.
     Generally they should be values between 0 and 1. */
-    public override float H => 0.09f;
-    public override float S => 0.40f;
-    public override float V => 0.80f;
+    public override float H => 0.10f;
+    public override float S => 0.55f;
+    public override float V => 0.95f;
 
     //Alternatively, leave these values at 1 and provide a custom frame image.
     /*public override Texture2D CustomFrame(CustomCardModel card)

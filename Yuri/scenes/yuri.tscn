@@ -14313,8 +14313,6 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
 [node name="Bounds" type="Control" parent="."]
 visible = false
 layout_mode = 3

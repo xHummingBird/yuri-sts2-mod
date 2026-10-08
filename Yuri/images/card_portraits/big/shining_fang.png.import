@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm2p2dqjbm3a4"
-path="res://.godot/imported/long_wolf_charge.png-d94f3e5fa7e8949d913e344175f0546d.ctex"
+uid="uid://cvhng5xpf7cux"
+path="res://.godot/imported/shining_fang.png-12f160112e9e728ad6dbda8e7e226180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yuri/images/card_portraits/big/long_wolf_charge.png"
-dest_files=["res://.godot/imported/long_wolf_charge.png-d94f3e5fa7e8949d913e344175f0546d.ctex"]
+source_file="res://Yuri/images/card_portraits/big/shining_fang.png"
+dest_files=["res://.godot/imported/shining_fang.png-12f160112e9e728ad6dbda8e7e226180.ctex"]
 
 [params]
 

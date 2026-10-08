@@ -201,8 +201,8 @@
   "YURI-ARTE_HOLD.description": "This turn, whenever you play a [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold], gain {Block:diff()} [gold]Block[/gold].",
   "YURI-ARTE_HOLD.title": "Arte Hold",
 
-  "YURI-ROLL.description": "Gain {Block:diff()} [gold]Block[/gold]. \nNext turn, gain {Energy:energyIcons()}.",
-  "YURI-ROLL.title": "Roll",
+  "YURI-DASH.description": "Gain {Block:diff()} [gold]Block[/gold]. \nNext turn, gain {Energy:energyIcons()}.",
+  "YURI-DASH.title": "Dash",
 
   "YURI-HYPER_ABILITY.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {ArcaneIcon}.",
   "YURI-HYPER_ABILITY.title": "Hyper Ability",

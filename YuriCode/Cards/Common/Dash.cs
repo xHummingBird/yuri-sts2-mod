@@ -10,7 +10,7 @@ using Yuri.YuriCode.Mechanics;
 
 namespace Yuri.YuriCode.Cards.Common;
 
-public class Roll() : YuriCard(2, CardType.Skill,
+public class Dash() : YuriCard(2, CardType.Skill,
     CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [

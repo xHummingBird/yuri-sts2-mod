@@ -5,10 +5,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 
-namespace Yuri.YuriCode.Cards.Common;
+namespace Yuri.YuriCode.Cards.Basic;
 
 public class Backstep() : YuriCard(1, CardType.Skill,
-    CardRarity.Common, TargetType.Self)
+    CardRarity.Basic, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, ValueProp.Move)];
 

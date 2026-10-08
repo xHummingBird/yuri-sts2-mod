@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmjtdgvs2nhr6"
-path="res://.godot/imported/the_vigilante.png-c193fb89f9b2912ef6c906dab40d2159.ctex"
+uid="uid://ymstnyil2otr"
+path="res://.godot/imported/item_hater.png-d6d7a2aa1a289ed8210bd6d061252b5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Yuri/images/card_portraits/big/the_vigilante.png"
-dest_files=["res://.godot/imported/the_vigilante.png-c193fb89f9b2912ef6c906dab40d2159.ctex"]
+source_file="res://Yuri/images/card_portraits/big/item_hater.png"
+dest_files=["res://.godot/imported/item_hater.png-d6d7a2aa1a289ed8210bd6d061252b5a.ctex"]
 
 [params]
 
