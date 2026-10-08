@@ -65,7 +65,7 @@ public class FatalStrike() : YuriCard(1, CardType.Skill,
             }
             else await FatalStrikePower.CheckAfterCardApplication(
                 play.Target
-            );;
+            );
     }
     
     protected override void OnUpgrade()

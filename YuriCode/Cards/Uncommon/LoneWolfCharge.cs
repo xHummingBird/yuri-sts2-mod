@@ -78,6 +78,10 @@ public class LoneWolfCharge() : YuriCard(2, CardType.Attack,
             .Execute(choiceContext);
         await Task.Delay((int)(0.4f * 1000f));
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        foreach (var enemy in enemies)
+            await FatalStrikePower.CheckAfterCardApplication(
+                enemy
+            );
         if (Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>())
             await PowerCmd.Apply<FreeSkillPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }

@@ -96,14 +96,21 @@ public class CrushingEagle() : YuriCard(2, CardType.Attack,
                         "res://Yuri/scenes/vfx.tscn",
                         "hit"
                     );
+                    await FatalStrikePower.CheckAfterCardApplication(
+                        enemy
+                    );
                 }
             }
             await Task.Delay((int)(0.350f * 1000f));
+            await FatalStrikePower.CheckAfterCardApplication(
+                play.Target
+            );
         }
         else
             await CommonActions.CardAttack(this, play.Target)
                 .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
                 .Execute(choiceContext);
+        
     }
     
     protected override void OnUpgrade()

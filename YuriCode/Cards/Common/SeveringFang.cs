@@ -63,6 +63,9 @@ public class SeveringFang() : YuriCard(1, CardType.Attack,
             .WithHitFx(null)
             .Execute(choiceContext);
         await Task.Delay((int)(0.6f * 1000f));
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
     }
     
     protected override void OnUpgrade()

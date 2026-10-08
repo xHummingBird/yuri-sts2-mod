@@ -114,6 +114,9 @@ public class BrutalFang() : YuriCard(0, CardType.Attack,
             .WithHitFx(null, "res://Yuri/sfx/FromTifa/punch_critical.wav")
             .Execute(choiceContext);
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
     }
     
     protected override void OnUpgrade()

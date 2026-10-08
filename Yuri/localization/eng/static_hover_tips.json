@@ -1,13 +1,13 @@
 {
   "YURI_OVERLIMIT.title": "Over Limit",
-  "YURI_OVERLIMIT.description": "Gain 2 Over Limit whenever you play a card and additional Over Limit equal to Combo gained. \nGain 3 Over Limit at the start of your turn. \n\nWhen Over Limit reaches 100, gain [gold]Over Limit[/gold] buff and apply all [blue]Combo[/blue] bonuses regardless of Combo Count for 2 turns.",
+  "YURI_OVERLIMIT.description": "Gain 2 Over Limit whenever you play a card and additional Over Limit equal to Combo gained. \nGain 3 Over Limit at the start of your turn. \n\nWhen Over Limit reaches 100, gain [gold]Over Limit[/gold] buff and always apply [gold]Arcane Arte[/gold] boost for 2 turns.",
 
   "YURI_COMBO.title": "Combo",
-  "YURI_COMBO.description": "Represents the total number of hits chained during combat. Attacks increase Combo based on their hit count. Higher ",
+  "YURI_COMBO.description": "Represents the total number of hits chained during combat. Attacks increase Combo based on their hit count. Gain improved combat rewards based on your Combo at the end of combat.\n\n[gold]20[/gold]: Gain 10 additional gold.\n[gold]40[/gold]: Start the next combat with 20 Overlimit.\n[gold]60[/gold]: Gain an additional potion.\n[gold]80[/gold]: Gain an additional Arte in your card reward.",
 
   "YURI_BASE_ARTE.title": "Base Arte",
   "YURI_BASE_ARTE.description": "Base Artes boost the next Arcane Arte and contribute their listed Combo count.",
 
   "YURI_ARCANE_ARTE.title": "Arcane Arte",
-  "YURI_ARCANE_ARTE.description": "Arcane Artes contribute their listed Combo count and apply additional effects if played after a Base Arte."
+  "YURI_ARCANE_ARTE.description": "Arcane Artes contribute their listed Combo count and apply additional effects if played after a Base Arte. Arcane Artes always trigger [gold]Fatal Strike[/gold]."
 }

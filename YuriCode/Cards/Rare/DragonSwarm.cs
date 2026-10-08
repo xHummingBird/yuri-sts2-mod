@@ -100,6 +100,9 @@ public class DragonSwarm() : YuriCard(3, CardType.Attack,
             .Execute(choiceContext);
         await Task.Delay((int)(0.4f * 1000f));
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
         if (Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>())
             await PowerCmd.Apply<FreeSkillPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }

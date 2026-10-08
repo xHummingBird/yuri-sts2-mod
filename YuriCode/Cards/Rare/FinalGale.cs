@@ -82,6 +82,10 @@ public class FinalGale() : YuriCard(7, CardType.Attack,
             .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
             .Execute(choiceContext);
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        foreach (var enemy in enemies)
+            await FatalStrikePower.CheckAfterCardApplication(
+                enemy
+            );
     }
     
     protected override void OnUpgrade()

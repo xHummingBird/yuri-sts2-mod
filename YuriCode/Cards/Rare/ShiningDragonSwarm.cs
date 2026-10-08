@@ -105,6 +105,9 @@ public class ShiningDragonSwarm() : YuriCard(2, CardType.Attack,
             .Execute(choiceContext);
         await Task.Delay((int)(0.2f * 1000f));
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
     }
     
     protected override void OnUpgrade()

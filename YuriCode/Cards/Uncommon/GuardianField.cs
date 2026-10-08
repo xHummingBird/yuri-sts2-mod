@@ -97,15 +97,21 @@ public class GuardianField() : YuriCard(2, CardType.Attack,
                         "res://Yuri/scenes/vfx.tscn",
                         "hit"
                     );
+                    await FatalStrikePower.CheckAfterCardApplication(
+                        enemy
+                    );
                 }
             }
             await Task.Delay((int)(0.350f * 1000f));
+            
         }
         else
             await CommonActions.CardAttack(this, play.Target)
                 .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
                 .Execute(choiceContext);
-
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
         await CommonActions.CardBlock(this, play);
         if (Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>())
             await CommonActions.CardBlock(this, play);

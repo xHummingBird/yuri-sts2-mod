@@ -119,7 +119,7 @@ public abstract class ArteRelicBase : YuriRelic
          * Remaining Combo is no longer converted directly into Overlimit.
          */
         StoredOverlimit =
-            PendingRewardCombo >= 50
+            PendingRewardCombo >= 40
                 ? 20
                 : 0;
 
@@ -412,7 +412,7 @@ public abstract class ArteRelicBase : YuriRelic
         if (_addedComboGoldReward)
             return false;
 
-        if (PendingRewardCombo < 25)
+        if (PendingRewardCombo < 20)
             return false;
 
         rewards.Add(
@@ -437,7 +437,7 @@ public abstract class ArteRelicBase : YuriRelic
         if (!roomType.IsCombatRoom())
             return false;
 
-        return PendingRewardCombo >= 75;
+        return PendingRewardCombo >= 60;
     }
     
     public override bool TryModifyCardRewardOptions(
@@ -452,7 +452,7 @@ public abstract class ArteRelicBase : YuriRelic
      * Requires at least 100 Combo from the combat
      * that generated this reward.
      */
-    if (PendingRewardCombo < 100)
+    if (PendingRewardCombo < 80)
         return false;
 
     /*
