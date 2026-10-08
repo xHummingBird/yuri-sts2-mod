@@ -96,10 +96,10 @@
   "YURI-BACKSTEP.description": "Gain {Block:diff()} [gold]Block[/gold]. \n[gold]Retreat[/gold], and if you do, gain [gold]Block[/gold] another time.",
   "YURI-BACKSTEP.title": "Backstep",
 
-  "YURI-CRUSHING_EAGLE.description": "Deal {Damage:diff()} damage. \nDeal damage to nearby enemies. \n{ArcaneIcon}: Costs {energyPrefix:energyIcons(1)} less.",
+  "YURI-CRUSHING_EAGLE.description": "Deal {Damage:diff()} damage. \nDeal damage to enemies near you. \n{ArcaneIcon}: Costs {energyPrefix:energyIcons(1)} less.",
   "YURI-CRUSHING_EAGLE.title": "Crushing Eagle",
 
-  "YURI-GUARDIAN_FIELD.description": "Deal {Damage:diff()} damage. \nGain {Block:diff()} [gold]Block[/gold]. \nDeal damage to nearby enemies. \n{ArcaneIcon}: Gain [gold]Block[/gold] another time.",
+  "YURI-GUARDIAN_FIELD.description": "Deal {Damage:diff()} damage. \nGain {Block:diff()} [gold]Block[/gold]. \nDeal damage to enemies near you. \n{ArcaneIcon}: Gain [gold]Block[/gold] another time.",
   "YURI-GUARDIAN_FIELD.title": "Guardian Field",
 
   "YURI-SEVERING_FANG.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Deal double damage to enemies with [gold]Fatal Strike[/gold].",
@@ -177,7 +177,7 @@
   "YURI-EN_GARDE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {Overlimit:diff()} [gold]Over Limit[/gold].",
   "YURI-EN_GARDE.title": "En Garde",
 
-  "YURI-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "YURI-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold]. \nApply 2 [gold]Weak[/gold].",
   "YURI-DEFLECT.title": "Deflect",
 
   "YURI-GUARD_CANCEL.description": "[gold]Retreat[/gold]. \nAdd a random [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold] into your [gold]Hand[/gold]. \nIt is free to play this turn.",

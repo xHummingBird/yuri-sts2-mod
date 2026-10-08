@@ -12,7 +12,7 @@ using Yuri.YuriCode.Powers;
 namespace Yuri.YuriCode.Cards.Common;
 
 public class RecoveringGuard() : YuriCard(1, CardType.Skill,
-    CardRarity.Common, TargetType.Self)
+    CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
         [
@@ -29,7 +29,7 @@ public class RecoveringGuard() : YuriCard(1, CardType.Skill,
     {
         AudioHelper.PlayRandomDefend();
         await CommonActions.CardBlock(this, play);
-        await PowerCmd.Apply<FatalStrikePower>(choiceContext, Owner.Creature, DynamicVars["FatalStrikePower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<FatalStrikePower>(choiceContext, play.Target, DynamicVars["FatalStrikePower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
