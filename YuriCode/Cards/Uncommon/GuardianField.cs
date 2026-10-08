@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
@@ -24,6 +25,11 @@ public class GuardianField() : YuriCard(2, CardType.Attack,
     [
         new DamageVar(10, ValueProp.Move),
         new BlockVar(10, ValueProp.Move)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        YuriStaticHoverTips.ArcaneArte
     ];
 
     protected override async Task OnPlay(

@@ -15,7 +15,7 @@ using Yuri.YuriCode.Powers;
 namespace Yuri.YuriCode.Cards.Rare;
 
 public class DraconianSlash() : YuriCard(1, CardType.Attack,
-    CardRarity.Common, TargetType.AnyEnemy), IBaseArte
+    CardRarity.Rare, TargetType.AnyEnemy), IBaseArte
 {
     public int ComboGain => 2;
     

@@ -69,7 +69,7 @@ public class FatalFinish() : YuriCard(1, CardType.Attack,
             .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
             .Execute(choiceContext);
         
-        var enemyFatalStrike = play.Target.MaxHp * 0.05m;
+        var enemyFatalStrike = play.Target.MaxHp * 0.1m;
         await PowerCmd.Apply<FatalStrikePower>(choiceContext, play.Target, enemyFatalStrike, Owner.Creature, this);
         await FatalStrikePower.CheckAfterCardApplication(
             play.Target

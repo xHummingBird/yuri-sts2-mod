@@ -17,7 +17,8 @@ public class BraveVesperia() : YuriCard(
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BraveVesperiaPower>(1)
+        new PowerVar<BraveVesperiaPower>(1),
+        new EnergyVar(1)
     ];
 
     protected override async Task OnPlay(
@@ -26,13 +27,7 @@ public class BraveVesperia() : YuriCard(
     {
         AudioHelper.PlayRandomDefend();
 
-        await PowerCmd.Apply<BraveVesperiaPower>(
-            choiceContext,
-            base.Owner.Creature,
-            DynamicVars["BraveVesperiaPower"].BaseValue,
-            base.Owner.Creature,
-            this
-        );
+        (await PowerCmd.Apply<BraveVesperiaPower>(choiceContext, base.Owner.Creature, DynamicVars["BraveVesperiaPower"].BaseValue, base.Owner.Creature, this))?.IncrementOverlimitPerTurn();
     }
 
     protected override void OnUpgrade()

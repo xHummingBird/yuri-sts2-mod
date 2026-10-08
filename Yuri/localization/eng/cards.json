@@ -11,7 +11,7 @@
   "YURI-DEFEND_YURI.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "YURI-DEFEND_YURI.title": "Defend",
 
-  "YURI-SAVAGE_WOLF_FURY.description": "Deal {CalculatedBase:diff()} damage. \nIf you played an [gold]Arcane Arte[/gold] this turn, deal {ExtraDamage:diff()} additional damage.",
+  "YURI-SAVAGE_WOLF_FURY.description": "Deal {CalculatedDamage:diff()} damage. \nIf you played an [gold]Arcane Arte[/gold] this turn, deal {ExtraDamage:diff()} additional damage.",
   "YURI-SAVAGE_WOLF_FURY.title": "Savage Wolf Fury",
 
   "YURI-BRUTAL_FANG.description": "Deal {Damage:diff()} damage for each {Energy:energyIcons()} spent. \n{ArcaneIcon}: Increase X by 2.",
@@ -26,13 +26,13 @@
   "YURI-AZURE_STORM.description": "Deal {Damage:diff()} damage 2 times. \nIf enemy is close, hit 2 more times.",
   "YURI-AZURE_STORM.title": "Azure Storm",
 
-  "YURI-DRACONIAN_SLASH.description": "Deal {Damage:diff()} damage 2 times. \nYour next Attack costs 0 {Energy:energyIcons()}.",
+  "YURI-DRACONIAN_SLASH.description": "Deal {Damage:diff()} damage. \nYour next Attack costs 0 {Energy:energyIcons()}.",
   "YURI-DRACONIAN_SLASH.title": "Draconian Slash",
 
   "YURI-TIGER_BLADE.description": "Deal {Damage:diff()} damage. \nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
   "YURI-TIGER_BLADE.title": "Tiger Blade",
 
-  "YURI-HIT_AND_RUN.description": "Deal {Damage:diff()} damage. \n[gold]Retreat.[/gold]",
+  "YURI-HIT_AND_RUN.description": "Deal {Damage:diff()} damage. \nNext turn, gain {Energy:energyIcons()}. \n[gold]Retreat.[/gold]",
   "YURI-HIT_AND_RUN.title": "Hit And Run",
 
   "YURI-SHINING_DRAGON_SWARM.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Deal damage equal to the enemy's [gold]Fatal Strike[/gold].",
@@ -105,7 +105,7 @@
   "YURI-SEVERING_FANG.description": "Deal {Damage:diff()} damage. \n{ArcaneIcon}: Deal double damage to enemies with [gold]Fatal Strike[/gold].",
   "YURI-SEVERING_FANG.title": "Severing Fang",
 
-  "YURI-LONE_WOLF_CHARGE.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts {energyPrefix:energyIcons(1)} less for each [gold]Skill[/gold] played this turn. \n{ArcaneIcon}: Apply {WeakPower:diff()} [gold]Weak[/gold].",
+  "YURI-LONE_WOLF_CHARGE.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts {energyPrefix:energyIcons(1)} less for each [gold]Skill[/gold] played this turn. \n{ArcaneIcon}: Apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "YURI-LONE_WOLF_CHARGE.title": "Lone Wolf Charge",
 
   "YURI-FINAL_GALE.description": "[gold]Retreat[/gold]. \nDeal {CalculatedDamage:diff()} damage to ALL enemies. \nCosts {Energy:energyIcons()} less each time you play a [gold]Base Arte[/gold] this combat. \n{ArcaneIcon}: Deal 2 additional damage for each [gold]Arcane Arte[/gold] played this combat.",
@@ -129,7 +129,7 @@
   "YURI-DESTRUCTION_FIELD.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to damage dealt.",
   "YURI-DESTRUCTION_FIELD.title": "Destruction Field",
 
-  "YURI-FATAL_FINISH.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to 5% of the enemy's Max HP.",
+  "YURI-FATAL_FINISH.description": "Deal {Damage:diff()} damage. \nApply [gold]Fatal Strike[/gold] equal to 10% of the enemy's Max HP.",
   "YURI-FATAL_FINISH.title": "Fatal Finish",
 
   "YURI-FATAL_STRIKE.description": "Apply {FatalStrikePower:diff()} [gold]Fatal Strike[/gold].",
@@ -165,7 +165,7 @@
   "YURI-ITEM_HATER.description": "Discard your [gold]Hand[/gold]. \nDraw that many cards.",
   "YURI-ITEM_HATER.title": "Item Hater",
 
-  "YURI-BERSERKER.description": "All cards in your [gold]Hand[/gold] are free to play this turn.",
+  "YURI-BERSERKER.description": "All [gold]Attacks[/gold] in your [gold]Hand[/gold] are free to play this turn.",
   "YURI-BERSERKER.title": "Berserker",
 
   "YURI-STEEL.description": "Gain {Block:diff()} [gold]Block[/gold]. \nIf you are in your original combat position, gain {VigorPower:diff()} [gold]Vigor[/gold].",
@@ -198,10 +198,10 @@
   "YURI-CRITICAL_GUARD.description": "Gain {Block:diff()} [gold]Block[/gold]. \nIf you are currently near an enemy, gain [gold]Block[/gold] another time.",
   "YURI-CRITICAL_GUARD.title": "Critical Guard",
 
-  "YURI-ARTE_HOLD.description": "This turn, whenever you play a [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold], gain {Block:diff()} [gold]Block[/gold].",
+  "YURI-ARTE_HOLD.description": "This turn, whenever you play a [gold]Base Arte[/gold] or [gold]Arcane Arte[/gold], gain {ArteHoldPower:diff()} [gold]Block[/gold].",
   "YURI-ARTE_HOLD.title": "Arte Hold",
 
-  "YURI-DASH.description": "Gain {Block:diff()} [gold]Block[/gold]. \nNext turn, gain {Energy:energyIcons()}.",
+  "YURI-DASH.description": "Gain {Block:diff()} [gold]Block[/gold]. \nNext turn, gain {Energy:energyIcons()}. \n[gold]Retreat[/gold].",
   "YURI-DASH.title": "Dash",
 
   "YURI-HYPER_ABILITY.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain {ArcaneIcon}.",

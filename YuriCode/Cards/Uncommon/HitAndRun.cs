@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 
@@ -13,7 +14,8 @@ public class HitAndRun() : YuriCard(1, CardType.Attack,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new DamageVar(9, ValueProp.Move)
+        new DamageVar(9, ValueProp.Move),
+        new EnergyVar(1)
     ];
 
     protected override async Task OnPlay(
@@ -52,6 +54,7 @@ public class HitAndRun() : YuriCard(1, CardType.Attack,
             await CommonActions.CardAttack(this, play.Target)
                 .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
                 .Execute(choiceContext);
+        await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
     
     protected override void OnUpgrade()

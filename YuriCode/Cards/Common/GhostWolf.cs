@@ -52,7 +52,7 @@ public class GhostWolf() : YuriCard(1, CardType.Attack,
             await Task.Delay((int)(0.183f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/FromTifa/punch_swing_1.wav");
             YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, null, "res://Yuri/sfx/FromTifa/punch_critical.wav", "hit");
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: -250f, durationSeconds: 0.067f, forceMove: true, overrideAnim: null);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: -190f, durationSeconds: 0.067f, forceMove: true, overrideAnim: "ghost_wolf");
             await Task.Delay((int)(0.250f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
             await Task.Delay((int)(0.05f * 1000f));
@@ -66,6 +66,7 @@ public class GhostWolf() : YuriCard(1, CardType.Attack,
             .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
             .Execute(choiceContext);
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, play.Target, 1, Owner.Creature, this);
     }
     
     protected override void OnUpgrade()

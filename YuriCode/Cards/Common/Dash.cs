@@ -23,6 +23,10 @@ public class Dash() : YuriCard(2, CardType.Skill,
         AudioHelper.PlayRandomDefend();
         await CommonActions.CardBlock(this, play);
         await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+        if (Owner?.Character is Character.Yuri yuri)
+        {
+            await yuri.ReturnToCombatHome(Owner.Creature);
+        }
     }
 
     protected override void OnUpgrade()

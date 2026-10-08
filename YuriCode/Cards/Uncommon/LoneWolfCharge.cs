@@ -27,12 +27,14 @@ public class LoneWolfCharge() : YuriCard(2, CardType.Attack,
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(15m, ValueProp.Move),
-        new EnergyVar(1)
+        new EnergyVar(1),
+        new PowerVar<WeakPower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         YuriStaticHoverTips.ArcaneArte,
+        HoverTipFactory.FromPower<WeakPower>()
     ];
 
     protected override async Task OnPlay(
@@ -123,5 +125,6 @@ public class LoneWolfCharge() : YuriCard(2, CardType.Attack,
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Weak.UpgradeValueBy(1);
     }
 }

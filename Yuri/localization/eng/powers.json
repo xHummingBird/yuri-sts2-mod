@@ -7,8 +7,8 @@
   "YURI-ARCANE_ARTE_BOOST_POWER.smartDescription": "Your next Arcane Arte applies its additional effect. Buff is removed at the end of the turn or when you play a attack card that is not an Arcane Arte.",
   "YURI-ARCANE_ARTE_BOOST_POWER.title": "Boost Arcane Arte",
 
-  "YURI-BRAVE_VESPERIA_POWER.description": "Gain [gold]Energy[/gold] and 5 [gold]Overlimit[/gold] at the start of your turn.",
-  "YURI-BRAVE_VESPERIA_POWER.smartDescription": "Gain {Amount:energyIcons()} and 5 [gold]Overlimit[/gold] at the start of your turn.",
+  "YURI-BRAVE_VESPERIA_POWER.description": "Gain [gold]Energy[/gold] and 5 [gold]Over Limit[/gold] at the start of your turn.",
+  "YURI-BRAVE_VESPERIA_POWER.smartDescription": "Gain {Amount:energyIcons()} and [blue]{Overlimit}[/blue] [gold]Over Limit[/gold] at the start of your turn.",
   "YURI-BRAVE_VESPERIA_POWER.title": "Brave Vesperia",
 
   "YURI-BLASTIA_ENHANCEMENT_POWER.description": "[gold]Arcane Artes[/gold] deal 50% additional damage while you have {ArcaneIcon}.",
