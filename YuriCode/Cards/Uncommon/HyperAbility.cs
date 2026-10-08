@@ -5,13 +5,12 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
-using Yuri.YuriCode.Mechanics;
 using Yuri.YuriCode.Powers;
 
-namespace Yuri.YuriCode.Cards.Common;
+namespace Yuri.YuriCode.Cards.Uncommon;
 
 public class HyperAbility() : YuriCard(1, CardType.Skill,
-    CardRarity.Common, TargetType.Self)
+    CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(7, ValueProp.Move),

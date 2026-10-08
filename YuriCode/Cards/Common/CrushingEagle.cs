@@ -1,17 +1,23 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Extensions;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
+using Yuri.YuriCode.Powers;
 
 namespace Yuri.YuriCode.Cards.Common;
 
 public class CrushingEagle() : YuriCard(2, CardType.Attack,
     CardRarity.Common, TargetType.AnyEnemy), IArcaneArte
 {
+    protected override bool ShouldGlowGoldInternal => base.Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>();
+    
     public int ComboGain => 1;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => 
@@ -24,7 +30,7 @@ public class CrushingEagle() : YuriCard(2, CardType.Attack,
         CardPlay play)
     {
         var ownerCreature = Owner?.Creature;
-
+        
         if (ownerCreature != null && Owner?.Character is Character.Yuri yuri)
         {
             float distance =
@@ -37,19 +43,67 @@ public class CrushingEagle() : YuriCard(2, CardType.Attack,
                 await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             
             await yuri.YuriDashTo(ownerCreature, play.Target);
-            AudioHelper.PlayRandomAttackHard();
-            yuri.PlayAnimation(ownerCreature, "attack", true);
+            var splashTargets = CombatState
+                .GetTeammatesOf(play.Target)
+                .Where(enemy =>
+                    enemy != play.Target &&
+                    enemy.IsHittable &&
+                    yuri.DistanceToTarget(ownerCreature, enemy) <= 250f)
+                .ToList();
+            
+            AudioHelper.PlayRandomPhrase();
+            yuri.PlayAnimation(ownerCreature, "crushing_eagle");
+            await Task.Delay((int)(0.150f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.1167f * 1000f));
+            await Task.Delay((int)(0.1f * 1000f));
+            SfxCmd.Play("res://Yuri/sfx/FromTifa/final_heaven_hit.wav");
             yuri.PlayVfxOnTarget(
                 play.Target,
                 "res://Yuri/scenes/vfx.tscn",
                 "hit"
             );
+            await using AttackContext context = await AttackCommand.CreateContextAsync(CombatState, choiceContext, play);
+
+            List<DamageResult> primaryResults = (await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage.BaseValue, ValueProp.Move, this, play)
+            ).ToList();
+
+            context.AddHit(primaryResults);
+            
+            var hit = primaryResults.FirstOrDefault();
+
+            if (hit != null && splashTargets.Count > 0)
+            {
+                decimal splashDamage =
+                    hit.TotalDamage +
+                    hit.OverkillDamage;
+
+                context.AddHit(
+                    await CreatureCmd.Damage(
+                        choiceContext,
+                        splashTargets,
+                        splashDamage,
+                        ValueProp.Unpowered | ValueProp.Move,
+                        ownerCreature,
+                        this,
+                        play
+                    )
+                );
+
+                foreach (var enemy in splashTargets)
+                {
+                    yuri.PlayVfxOnTarget(
+                        enemy,
+                        "res://Yuri/scenes/vfx.tscn",
+                        "hit"
+                    );
+                }
+            }
+            await Task.Delay((int)(0.350f * 1000f));
         }
-        await CommonActions.CardAttack(this, play.Target)
-            .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
-            .Execute(choiceContext);
+        else
+            await CommonActions.CardAttack(this, play.Target)
+                .WithHitFx(null, "res://Yuri/sfx/hit_2.wav")
+                .Execute(choiceContext);
     }
     
     protected override void OnUpgrade()

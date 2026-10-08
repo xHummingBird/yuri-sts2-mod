@@ -45,6 +45,8 @@ public abstract class ArteRelicBase : YuriRelic
     protected virtual int OverlimitPerTurn => BaseOverlimitPerTurn;
     
     protected virtual int BaseOverlimitPerTurn => 3;
+
+    protected virtual int OverlimitPerCard => 2;
     
     public int Combo => _combo;
 
@@ -175,7 +177,9 @@ public abstract class ArteRelicBase : YuriRelic
 
         if (card.Owner != Owner)
             return;
-
+        
+        int gainPerCard = OverlimitPerCard;
+        
         int comboGain = GetComboGainFromCard(card);
 
         if (comboGain > 0)
@@ -192,7 +196,7 @@ public abstract class ArteRelicBase : YuriRelic
             GainCombo(comboGain);
         }
 
-        int overlimitGain = 1 + comboGain;
+        int overlimitGain = gainPerCard + comboGain;
 
         overlimitGain = ModifyOverlimitGain(
             card,

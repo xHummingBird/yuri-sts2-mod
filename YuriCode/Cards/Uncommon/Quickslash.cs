@@ -7,10 +7,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Relics;
 
-namespace Yuri.YuriCode.Cards.Common;
+namespace Yuri.YuriCode.Cards.Uncommon;
 
 public class Quickslash() : YuriCard(1, CardType.Attack,
-    CardRarity.Common, TargetType.AnyEnemy)
+    CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [

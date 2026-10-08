@@ -8,4 +8,6 @@ public class VesperiaNoTwo : ArteRelicBase
         RelicRarity.Ancient;
     
     protected override int BaseOverlimitPerTurn => 7;
+
+    protected override int OverlimitPerCard => 3;
 }

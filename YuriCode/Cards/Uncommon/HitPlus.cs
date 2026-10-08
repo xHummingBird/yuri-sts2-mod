@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 
-namespace Yuri.YuriCode.Cards.Rare;
+namespace Yuri.YuriCode.Cards.Uncommon;
 
 public class HitPlus() : YuriCard(1, CardType.Attack,
     CardRarity.Uncommon, TargetType.AnyEnemy)

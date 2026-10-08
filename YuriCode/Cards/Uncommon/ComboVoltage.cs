@@ -35,6 +35,6 @@ public class ComboVoltage() : YuriCard(
 
     protected override void OnUpgrade()
     {
-        DynamicVars["ComboVoltagePower"].UpgradeValueBy(1m);
+        base.EnergyCost.UpgradeBy(-1);
     }
 }

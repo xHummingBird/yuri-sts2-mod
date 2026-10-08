@@ -1,0 +1,16 @@
+{
+  "YURI-APPLE_GEL.description": "Heal for [green]{HealPercent}%[/green] of your Max HP.",
+  "YURI-APPLE_GEL.title": "Apple Gel",
+  
+  "YURI-LEMON_GEL.description": "Heal for [green]{HealPercent}%[/green] of your Max HP.",
+  "YURI-LEMON_GEL.title": "Lemon Gel",
+
+  "YURI-ORANGE_GEL.description": "Gain {Energy:energyIcons()}.",
+  "YURI-ORANGE_GEL.title": "Orange Gel",
+
+  "YURI-PINEAPPLE_GEL.description": "Gain {Energy:energyIcons()}.",
+  "YURI-PINEAPPLE_GEL.title": "Pineapple Gel",
+
+  "YURI-LIFE_BOTTLE.description": "When your HP would be reduced to [blue]0[/blue], instead this potion is discarded and you heal to [blue]30%[/blue] of your Max HP.",
+  "YURI-LIFE_BOTTLE.title": "Life Bottle"
+}

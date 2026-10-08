@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Yuri.YuriCode.Extensions;
@@ -16,10 +16,12 @@ public class Berserker() : YuriCard(2, CardType.Skill, CardRarity.Rare, TargetTy
                 card.SetToFreeThisTurn();
             }
         }
+        
     }
     
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Retain);
     }
+    
 }

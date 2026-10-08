@@ -1,5 +1,4 @@
 ﻿using BaseLib.Extensions;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,6 +15,8 @@ namespace Yuri.YuriCode.Cards.Uncommon;
 public class BrutalFang() : YuriCard(0, CardType.Attack,
     CardRarity.Uncommon, TargetType.AnyEnemy), IArcaneArte
 {
+    protected override bool ShouldGlowGoldInternal => base.Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>();
+    
     public int ComboGain => 9;
     protected override bool HasEnergyCostX => true;
     

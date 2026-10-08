@@ -10,12 +10,16 @@ public static class YuriAssets
 {
     private static PackedScene? _yuriScene;
     private static PackedScene? _vfxScene;
-    private static PackedScene? _yellowHitVfxScene;
-    private static PackedScene? _blueHitVfxScene;
 
     private const string YuriScenePath = "res://Yuri/scenes/yuri.tscn";
     private const string VfxPath = "res://Yuri/scenes/vfx.tscn";
     
+    public static bool IsYuriInRun(IRunState runState)
+    {
+        return runState?.Players?.Any(
+            p => p?.Character is Yuri.YuriCode.Character.Yuri
+        ) ?? false;
+    }
 
     public static PackedScene? YuriScene
     {
@@ -69,11 +73,13 @@ public static class YuriAfterActEnteredPreloadPatch
     [HarmonyPrefix]
     public static void Prefix(IRunState runState)
     {
-        var player = runState?.Players?.FirstOrDefault();
-
-        if (player?.Character is not Character.Yuri)
+        // var player = runState?.Players?.FirstOrDefault();
+        //
+        // if (player?.Character is not Character.Yuri)
+        //     return;
+        if (!YuriAssets.IsYuriInRun(runState))
             return;
-
+        
         GD.Print("AfterActEntered: Yuri detected → preloading");
 
         YuriAssets.EnsurePreloaded();
@@ -87,11 +93,13 @@ public static class YuriAfterRoomEnteredPreloadPatch
     [HarmonyPrefix]
     public static void Prefix(IRunState runState, AbstractRoom room)
     {
-        var player = runState?.Players?.FirstOrDefault();
-
-        if (player?.Character is not Character.Yuri)
+        // var player = runState?.Players?.FirstOrDefault();
+        //
+        // if (player?.Character is not Character.Yuri)
+        //     return;
+        if (!YuriAssets.IsYuriInRun(runState))
             return;
-
+        
         GD.Print($"AfterRoomEntered: Yuri detected → preloading. Room = {room.GetType().Name}");
 
         YuriAssets.EnsurePreloaded();

@@ -11,34 +11,26 @@ namespace Yuri.YuriCode.Powers;
 
 public sealed class ComboVoltagePower : YuriPower
 {
-    private sealed class Data
+    private class Data
     {
-        public int EnergySpent;
-        public int TriggerCount;
+        public int energySpent;
+
+        public int triggerCount;
     }
 
-    private const int EnergyIncrement = 4;
+    private const int _energyIncrement = 4;
 
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override int DisplayAmount =>
-        EnergyIncrement -
-        GetInternalData<Data>().EnergySpent % EnergyIncrement;
+    public override int DisplayAmount => 4 - GetInternalData<Data>().energySpent % 4;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.ForEnergy(this)
-    ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
-    public override PowerInstanceType InstanceType =>
-        PowerInstanceType.Instanced;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new EnergyVar(EnergyIncrement)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(4)];
 
     protected override object InitInternalData()
     {
@@ -47,30 +39,18 @@ public sealed class ComboVoltagePower : YuriPower
 
     public override async Task AfterEnergySpent(CardModel card, int amount)
     {
-        if (card.Owner.Creature != Owner || amount <= 0)
+        if (card.Owner.Creature == base.Owner && amount > 0)
         {
-            return;
+            Data data = GetInternalData<Data>();
+            data.energySpent += amount;
+            int triggers = data.energySpent / 4 - data.triggerCount;
+            if (triggers > 0)
+            {
+                Flash();
+                await PlayerCmd.GainEnergy(base.Amount * triggers, base.Owner.Player);
+                data.triggerCount += triggers;
+            }
+            InvokeDisplayAmountChanged();
         }
-
-        Data data = GetInternalData<Data>();
-
-        data.EnergySpent += amount;
-
-        int triggers =
-            data.EnergySpent / EnergyIncrement -
-            data.TriggerCount;
-
-        if (triggers > 0)
-        {
-            Flash();
-
-            await PlayerCmd.GainEnergy(
-                Amount * triggers,
-                Owner.Player);
-
-            data.TriggerCount += triggers;
-        }
-
-        InvokeDisplayAmountChanged();
     }
 }

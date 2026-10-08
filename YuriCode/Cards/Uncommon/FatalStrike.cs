@@ -46,11 +46,11 @@ public class FatalStrike() : YuriCard(1, CardType.Skill,
 
                 await yuri.YuriDashTo(ownerCreature, play.Target);
                 AudioHelper.PlayRandomAttackHard();
-                yuri.PlayAnimation(ownerCreature, "fatal_strike", true);
+                yuri.PlayAnimation(ownerCreature, "fatal_strike");
                 await Task.Delay((int)(0.1f * 1000f));
                 SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
                 yuri.YuriDashTo(ownerCreature, play.Target, distance: -250f, forceMove: true, durationSeconds: 0.1f,
-                    overrideAnim: null);
+                    overrideAnim: "fatal_strike");
                 await Task.Delay((int)(0.05f * 1000f));
                 yuri.PlayVfxOnTarget(
                     play.Target,

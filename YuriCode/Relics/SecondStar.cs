@@ -8,4 +8,6 @@ public class SecondStar : ArteRelicBase
         RelicRarity.Starter;
 
     protected override int BaseOverlimitPerTurn => 5;
+
+    protected override int OverlimitPerCard => 2;
 }

@@ -16,6 +16,8 @@ namespace Yuri.YuriCode.Cards.Common;
 public class AzureWolfStrike() : YuriCard(1, CardType.Attack,
     CardRarity.Common, TargetType.AnyEnemy), IArcaneArte
 {
+    protected override bool ShouldGlowGoldInternal => base.Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>();
+    
     public int ComboGain => 3;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>

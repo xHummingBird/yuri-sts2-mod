@@ -1,6 +1,6 @@
 {
   "YURI_OVERLIMIT.title": "Over Limit",
-  "YURI_OVERLIMIT.description": "Gain 1 Over Limit whenever you play a card and additional Over Limit equal to Combo gained. \nGain 3 Over Limit at the start of your turn. \n\nWhen Over Limit reaches 100, gain [gold]Over Limit[/gold] buff and apply all [blue]Combo[/blue] bonuses regardless of Combo Count for 2 turns.",
+  "YURI_OVERLIMIT.description": "Gain 2 Over Limit whenever you play a card and additional Over Limit equal to Combo gained. \nGain 3 Over Limit at the start of your turn. \n\nWhen Over Limit reaches 100, gain [gold]Over Limit[/gold] buff and apply all [blue]Combo[/blue] bonuses regardless of Combo Count for 2 turns.",
 
   "YURI_COMBO.title": "Combo",
   "YURI_COMBO.description": "Represents the total number of hits chained during combat. Attacks increase Combo based on their hit count. Higher ",

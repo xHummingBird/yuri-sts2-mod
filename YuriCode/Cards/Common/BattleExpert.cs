@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace Yuri.YuriCode.Cards.Common;
 
-public class BattleExpert() : YuriCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class BattleExpert() : YuriCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 

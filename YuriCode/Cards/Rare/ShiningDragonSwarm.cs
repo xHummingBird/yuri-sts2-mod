@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Extensions;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,12 +13,15 @@ using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
+using Yuri.YuriCode.Powers;
 
 namespace Yuri.YuriCode.Cards.Rare;
 
-public class ShiningDragonSwarm() : YuriCard(1, CardType.Attack,
+public class ShiningDragonSwarm() : YuriCard(2, CardType.Attack,
     CardRarity.Rare, TargetType.AnyEnemy), IArcaneArte
 {
+    protected override bool ShouldGlowGoldInternal => base.Owner.HasPower<OverlimitPower>() || Owner.HasPower<ArcaneArteBoostPower>();
+    
     public int ComboGain => 8;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -101,40 +105,6 @@ public class ShiningDragonSwarm() : YuriCard(1, CardType.Attack,
             .Execute(choiceContext);
         await Task.Delay((int)(0.2f * 1000f));
         CenterCardCinematic.End(RunManager.Instance.NetService.NetId);
-    }
-    
-    public override Task AfterCardEnteredCombat(CardModel card)
-    {
-        if (card != this)
-        {
-            return Task.CompletedTask;
-        }
-        if (base.IsClone)
-        {
-            return Task.CompletedTask;
-        }
-        int amount = CombatManager.Instance.History.CardPlaysFinished.Count((CardPlayFinishedEntry e) => e.CardPlay.Card.Type == CardType.Attack && e.CardPlay.Player == base.Owner && e.HappenedThisTurn(base.CombatState));
-        ReduceCostBy(amount);
-        return Task.CompletedTask;
-    }
-
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner != base.Owner)
-        {
-            return Task.CompletedTask;
-        }
-        if (cardPlay.Card.Type != CardType.Attack)
-        {
-            return Task.CompletedTask;
-        }
-        ReduceCostBy(1);
-        return Task.CompletedTask;
-    }
-
-    private void ReduceCostBy(int amount)
-    {
-        base.EnergyCost.AddThisTurn(-amount);
     }
     
     protected override void OnUpgrade()

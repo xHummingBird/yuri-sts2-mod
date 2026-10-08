@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Cards.Common;
+using Yuri.YuriCode.Cards.Rare;
 using Yuri.YuriCode.Relics;
 
 namespace Yuri.YuriCode.Powers;
@@ -125,12 +126,6 @@ public sealed class FatalStrikePower : YuriPower
             return 1m;
         }
 
-        // The damage must come from Yuri.
-        if (dealer == null || dealer != Owner.Player?.Creature)
-        {
-            return 1m;
-        }
-
         // Either power activates the same single multiplier.
         bool hasRequiredPower = dealer.HasPower<ArcaneArteBoostPower>() || dealer.HasPower<OverlimitPower>();
 
@@ -140,5 +135,36 @@ public sealed class FatalStrikePower : YuriPower
         }
 
         return 2m;
+    }
+    
+    public override decimal ModifyDamageAdditive(
+        Creature? target,
+        decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
+    {
+        // Fatal Strike must be on the creature receiving damage.
+        if (target != Owner)
+        {
+            return 0m;
+        }
+
+        // Only Severing Fang receives the damage bonus.
+        if (cardSource is not ShiningDragonSwarm)
+        {
+            return 0m;
+        }
+
+        // Either power activates the same single multiplier.
+        bool hasRequiredPower = dealer.HasPower<ArcaneArteBoostPower>() || dealer.HasPower<OverlimitPower>();
+
+        if (!hasRequiredPower)
+        {
+            return 0m;
+        }
+
+        return Amount;
     }
 }

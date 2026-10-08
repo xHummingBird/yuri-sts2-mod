@@ -17,6 +17,8 @@ namespace Yuri.YuriCode.Cards.Ancient;
 public class SavageWolfFury() : YuriCard(0, CardType.Attack,
     CardRarity.Ancient, TargetType.AnyEnemy)
 {
+    protected override bool ShouldGlowGoldInternal => Owner.HasPower<MysticArteBoostPower>();
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(40m),
@@ -34,7 +36,8 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
     
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Exhaust
+        CardKeyword.Exhaust,
+        CardKeyword.Retain
     ];
 
 
@@ -220,6 +223,6 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
     protected override void OnUpgrade()
     {
         DynamicVars.CalculationBase.UpgradeValueBy(15);
-        DynamicVars.ExtraDamage.UpgradeValueBy(5);
+        DynamicVars.ExtraDamage.UpgradeValueBy(7);
     }
 }
