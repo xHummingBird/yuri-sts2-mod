@@ -423,31 +423,44 @@ public class Yuri : PlaceholderCharacterModel
         float tolerance = 50f,
         bool forceMove = false,
         bool forceLeftSide = true,
+        bool forceLeftForCrusherAndRocket = false,
         string? overrideAnim = null)
     {
-        var node = NCombatRoom.Instance?.GetCreatureNode(player);
-        var targetNode = NCombatRoom.Instance?.GetCreatureNode(target);
+        var node =
+            NCombatRoom.Instance?.GetCreatureNode(player);
+
+        var targetNode =
+            NCombatRoom.Instance?.GetCreatureNode(target);
 
         if (node == null || targetNode == null)
             return false;
 
         float currentDistance =
-            Mathf.Abs(node.GlobalPosition.X - targetNode.GlobalPosition.X);
+            Mathf.Abs(
+                node.GlobalPosition.X -
+                targetNode.GlobalPosition.X
+            );
 
         bool playerIsLeftOfTarget =
-            node.GlobalPosition.X < targetNode.GlobalPosition.X;
+            node.GlobalPosition.X <
+            targetNode.GlobalPosition.X;
 
-        bool ignoreForceLeft =
+        bool isCrusherOrRocket =
             target.Monster is Crusher ||
             target.Monster is Rocket;
 
-        bool needsSideCorrection =
+        bool shouldForceLeft =
             forceLeftSide &&
-            !ignoreForceLeft &&
+            (!isCrusherOrRocket ||
+            forceLeftForCrusherAndRocket);
+
+        bool needsSideCorrection =
+            shouldForceLeft &&
             !playerIsLeftOfTarget;
 
         bool needsDistanceCorrection =
-            currentDistance <= Mathf.Abs(distance) + tolerance;
+            currentDistance <=
+            Mathf.Abs(distance) + tolerance;
 
         if (!forceMove &&
             needsDistanceCorrection &&
@@ -458,14 +471,14 @@ public class Yuri : PlaceholderCharacterModel
 
         Vector2 offsetDir;
 
-        if (forceLeftSide && !ignoreForceLeft)
+        if (shouldForceLeft)
         {
-            // Always stand on enemy's left
+            // Always position Yuri to the target's left.
             offsetDir = Vector2.Left;
         }
         else
         {
-            // Existing dynamic behaviour for Crusher/Rocket
+            // Preserve dynamic positioning for Crusher and Rocket.
             offsetDir =
                 playerIsLeftOfTarget
                     ? Vector2.Left
@@ -473,9 +486,13 @@ public class Yuri : PlaceholderCharacterModel
         }
 
         Vector2 targetPos =
-            targetNode.GlobalPosition + offsetDir * distance;
+            targetNode.GlobalPosition +
+            offsetDir * distance;
 
-        PlayAnimation(player, overrideAnim ?? "dash");
+        PlayAnimation(
+            player,
+            overrideAnim ?? "dash"
+        );
 
         var tween = node.CreateTween();
 
@@ -488,7 +505,10 @@ public class Yuri : PlaceholderCharacterModel
             .SetTrans(Tween.TransitionType.Quad)
             .SetEase(Tween.EaseType.Out);
 
-        await node.ToSignal(tween, Tween.SignalName.Finished);
+        await node.ToSignal(
+            tween,
+            Tween.SignalName.Finished
+        );
 
         return true;
     }

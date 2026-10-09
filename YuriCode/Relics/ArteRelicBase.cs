@@ -170,8 +170,8 @@ public abstract class ArteRelicBase : YuriRelic
         PlayerChoiceContext choiceContext,
         CardPlay cardPlay)
     {
-        if (!CombatManager.Instance.IsInProgress)
-            return;
+        // if (!CombatManager.Instance.IsInProgress)
+        //     return;
 
         CardModel card = cardPlay.Card;
 
@@ -195,6 +195,9 @@ public abstract class ArteRelicBase : YuriRelic
         {
             GainCombo(comboGain);
         }
+
+        if (!CombatManager.Instance.IsInProgress)
+            return;
 
         int overlimitGain = gainPerCard + comboGain;
 

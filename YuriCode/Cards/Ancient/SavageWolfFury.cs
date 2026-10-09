@@ -50,6 +50,11 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
             NCombatRoom.Instance?.GetCreatureNode(play.Target);
         var positionX = targetNode.Position.X;
         var positionY = targetNode.Position.Y;
+        SpecialFlagA? specialFlagA = Owner.GetRelic<SpecialFlagA>();
+
+        String animationString = "savage_wolf_fury_short";
+        if (specialFlagA != null)
+        animationString = "savage_wolf_fury";
 
         if (ownerCreature != null && Owner?.Character is Character.Yuri yuri)
         {
@@ -57,8 +62,12 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
             SfxCmd.Play("res://Yuri/sfx/mystic_arte_activate_2.wav");
             SfxCmd.Play("res://Yuri/sounds/hiougi_1.wav");
             await Task.Delay((int)(1.4f * 1000f));
-            yuri.PlayAnimation(ownerCreature, "savage_wolf_fury", false);
-            SfxCmd.Play("res://Yuri/sounds/hiougi_2.wav");
+            yuri.PlayAnimation(ownerCreature, animationString, false);
+            if (specialFlagA != null)
+            {
+                SfxCmd.Play("res://Yuri/sounds/hiougi_2.wav");
+            }
+            
             await MysticArteCinematic.Start(RunManager.Instance.NetService.NetId, ownerCreature);
             if (targetNode != null)
             {
@@ -68,91 +77,94 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
                         200
                     );
             } // 0.3
-            await yuri.ReturnToCombatHome(ownerCreature, "savage_wolf_fury", false, durationSeconds: 0.01f);
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, durationSeconds: 0.04f, forceMove: true, tolerance: 0f, overrideAnim: "savage_wolf_fury"); //0.35
+            await yuri.ReturnToCombatHome(ownerCreature, animationString, false, durationSeconds: 0.01f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, durationSeconds: 0.04f, forceMove: true, tolerance: 0f, overrideAnim: animationString); //0.35
             await MysticArteCinematic.FadeTarget
             (
                 play.Target,
                 true
             ); //0.45
-            await Task.Delay((int)(0.15f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //0.7
-            
-            await Task.Delay((int)(0.35f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //1.1
-            
-            await Task.Delay((int)(0.45f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //1.6
-            
-            await Task.Delay((int)(0.35f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit_2"); //2.0
-            
-            await Task.Delay((int)(0.7f * 1000f));
-            SfxCmd.Play("res://Yuri/sounds/hiougi_3.wav");
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.1f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //2.8
-            
-            await Task.Delay((int)(0.383f * 1000f));//3.183
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));//3.233
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //3.233
-            
-            await Task.Delay((int)(1.017f * 1000f)); //4.25
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //4.3
-            
-            await Task.Delay((int)(0.467f * 1000f)); //4.767
-            SfxCmd.Play("res://Yuri/sounds/hiougi_4.wav");
-            await Task.Delay((int)(0.116f * 1000f)); //4.883
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.067f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //4.95
-            
-            await Task.Delay((int)(0.4f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //5.4
-            
-            await Task.Delay((int)(0.2f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit_2"); //5.65
-            
-            await Task.Delay((int)(0.25f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //5.95
-            
-            await Task.Delay((int)(0.25f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //6.25
-            
-            await Task.Delay((int)(0.30f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //6.6
-            
-            await Task.Delay((int)(0.30f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //6.95
-            
-            await Task.Delay((int)(0.2f * 1000f));
-            SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
-            await Task.Delay((int)(0.05f * 1000f));
-            YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //7.2
-            SfxCmd.Play("res://Yuri/sounds/hiougi_5.wav");
+            if (specialFlagA != null)
+            {
+                await Task.Delay((int)(0.15f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //0.7
+                
+                await Task.Delay((int)(0.35f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //1.1
+                
+                await Task.Delay((int)(0.45f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //1.6
+                
+                await Task.Delay((int)(0.35f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit_2"); //2.0
+                
+                await Task.Delay((int)(0.7f * 1000f));
+                SfxCmd.Play("res://Yuri/sounds/hiougi_3.wav");
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.1f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //2.8
+                
+                await Task.Delay((int)(0.383f * 1000f));//3.183
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));//3.233
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //3.233
+                
+                await Task.Delay((int)(1.017f * 1000f)); //4.25
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //4.3
+                
+                await Task.Delay((int)(0.467f * 1000f)); //4.767
+                SfxCmd.Play("res://Yuri/sounds/hiougi_4.wav");
+                await Task.Delay((int)(0.116f * 1000f)); //4.883
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.067f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //4.95
+                
+                await Task.Delay((int)(0.4f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //5.4
+                
+                await Task.Delay((int)(0.2f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit_2"); //5.65
+                
+                await Task.Delay((int)(0.25f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //5.95
+                
+                await Task.Delay((int)(0.25f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //6.25
+                
+                await Task.Delay((int)(0.30f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //6.6
+                
+                await Task.Delay((int)(0.30f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_2.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //6.95
+                
+                await Task.Delay((int)(0.2f * 1000f));
+                SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
+                await Task.Delay((int)(0.05f * 1000f));
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //7.2
+                SfxCmd.Play("res://Yuri/sounds/hiougi_5.wav");
+            }
             
             await Task.Delay((int)(0.25f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
@@ -215,6 +227,7 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
         await MysticArteCinematic.End(
             RunManager.Instance.NetService.NetId
         );
+
         OverlimitManager.SetOverlimit(Owner, 0);
         await PowerCmd.Remove<OverlimitPower>(Owner.Creature);
         await PowerCmd.Remove<MysticArteBoostPower>(Owner.Creature);

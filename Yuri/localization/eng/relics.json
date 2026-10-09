@@ -25,5 +25,13 @@
 
   "YURI-BHODI_BLASTIA.title": "Bhodi Blastia",
   "YURI-BHODI_BLASTIA.description": "At the start of each combat, add a random Base Arte or Arcane Arte into your hand.",
-  "YURI-BHODI_BLASTIA.flavor": ""
+  "YURI-BHODI_BLASTIA.flavor": "",
+
+  "YURI-SPECIAL_FLAG_A.title": "Special Flag A",
+  "YURI-SPECIAL_FLAG_A.description": "Play full animation when you play [gold]Savage Wolf Fury[/gold]",
+  "YURI-SPECIAL_FLAG_A.flavor": "You must be fun at parties.",
+
+  "YURI-SPECIAL_FLAG_B.title": "Special Flag B",
+  "YURI-SPECIAL_FLAG_B.description": "Play the last 2 seconds of animation when you play [gold]Savage Wolf Fury[/gold]",
+  "YURI-SPECIAL_FLAG_B.flavor": "Congratulations, everybody likes you now."
 }
