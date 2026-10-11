@@ -45,8 +45,8 @@ public class GhostWolf() : YuriCard(1, CardType.Attack,
                 );
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             SfxCmd.Play("res://Yuri/sounds/artes/ghost_wolf.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "ghost_wolf").total;
             await Task.Delay((int)(0.183f * 1000f));

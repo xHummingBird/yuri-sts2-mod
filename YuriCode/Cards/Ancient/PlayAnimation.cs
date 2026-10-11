@@ -7,9 +7,10 @@ using Yuri.YuriCode.Extensions;
 
 namespace Yuri.YuriCode.Cards.Ancient;
 
-public class PlayAnimation() : YuriCard(0, CardType.Status,
-    CardRarity.Token, TargetType.Self)
+public class PlayAnimation() : YuriCard(-1, CardType.Status,
+    CardRarity.Status, TargetType.None)
 {
+    public override bool CanBeGeneratedInCombat => false;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
    

@@ -43,9 +43,9 @@ public class FangStrike() : YuriCard(1, CardType.Attack,
                 );
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             AudioHelper.PlayRandomAttackHard();
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             float duration = yuri.PlayAnimation(ownerCreature, "fang_strike").total;
             await Task.Delay((int)(0.1f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/swing_1.wav");

@@ -5,8 +5,10 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Audio;
 using Yuri.YuriCode.Cards.Ancient;
 using Yuri.YuriCode.Cards.Common;
+using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
 using Yuri.YuriCode.Relics;
 
@@ -63,6 +65,7 @@ public class OverlimitPower : YuriPower
         var yuri = Owner?.Player.Character as Character.Yuri;
         if (ownerCreature != null && yuri != null)
         {
+            OverlimitMusic.Play();
             SfxCmd.Play("res://Yuri/sounds/overlimit.wav");
             SfxCmd.Play("res://Yuri/sfx/mystic_arte_activate_2.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "overlimit").total;

@@ -11,7 +11,7 @@
   "YURI-DEFEND_YURI.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "YURI-DEFEND_YURI.title": "Defend",
 
-  "YURI-SAVAGE_WOLF_FURY.description": "Deal {CalculatedDamage:diff()} damage. \nIf you played an [gold]Arcane Arte[/gold] this turn, deal {ExtraDamage:diff()} additional damage.",
+  "YURI-SAVAGE_WOLF_FURY.description": "Deal {CalculatedDamage:diff()} damage. \nIf you played an [gold]Arcane Arte[/gold] this turn, deal {ExtraDamage:diff()} additional damage. \nGain 19 [gold]Combo[/gold].",
   "YURI-SAVAGE_WOLF_FURY.title": "Savage Wolf Fury",
 
   "YURI-BRUTAL_FANG.description": "Deal {Damage:diff()} damage for each {Energy:energyIcons()} spent. \n{ArcaneIcon}: Increase X by 2.",
@@ -226,5 +226,11 @@
   "YURI-ITEM_PRO.title": "Item Pro",
 
   "YURI-OVER_THE_LIMIT.description": "Enter [gold]Over Limit[/gold].",
-  "YURI-OVER_THE_LIMIT.title": "Over The Limit"
+  "YURI-OVER_THE_LIMIT.title": "Over The Limit",
+
+  "YURI-PLAY_ANIMATION.description": "Play the full animation of [gold]Savage Wolf Fury[/gold]. Lasts for the entire run.",
+  "YURI-PLAY_ANIMATION.title": "Play Animation",
+
+  "YURI-SKIP_ANIMATION.description": "Skip most of the animation of [gold]Savage Wolf Fury[/gold]. Lasts for the entire run.",
+  "YURI-SKIP_ANIMATION.title": "Skip Animation"
 }

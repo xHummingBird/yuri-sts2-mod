@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
 using Yuri.YuriCode.Powers;
+using Yuri.YuriCode.Relics;
 
 namespace Yuri.YuriCode.Cards.Ancient;
 
@@ -53,8 +54,9 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
         SpecialFlagA? specialFlagA = Owner.GetRelic<SpecialFlagA>();
 
         String animationString = "savage_wolf_fury_short";
+        
         if (specialFlagA != null)
-        animationString = "savage_wolf_fury";
+            animationString = "savage_wolf_fury";
 
         if (ownerCreature != null && Owner?.Character is Character.Yuri yuri)
         {
@@ -78,7 +80,7 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
                     );
             } // 0.3
             await yuri.ReturnToCombatHome(ownerCreature, animationString, false, durationSeconds: 0.01f);
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, durationSeconds: 0.04f, forceMove: true, tolerance: 0f, overrideAnim: animationString); //0.35
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, durationSeconds: 0.04f, forceMove: true, forceLeftForCrusherAndRocket: true, tolerance: 0f, overrideAnim: animationString); //0.35
             await MysticArteCinematic.FadeTarget
             (
                 play.Target,
@@ -89,9 +91,9 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
                 await Task.Delay((int)(0.15f * 1000f));
                 SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
                 await Task.Delay((int)(0.05f * 1000f));
-                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //0.7
+                YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit"); //0.65
                 
-                await Task.Delay((int)(0.35f * 1000f));
+                await Task.Delay((int)(0.4f * 1000f));
                 SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
                 await Task.Delay((int)(0.05f * 1000f));
                 YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //1.1
@@ -164,9 +166,10 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
                 await Task.Delay((int)(0.05f * 1000f));
                 YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_2.wav", null,"savage_wolf_hit_2"); //7.2
                 SfxCmd.Play("res://Yuri/sounds/hiougi_5.wav");
+                await Task.Delay((int)(0.15f * 1000f));
             }
             
-            await Task.Delay((int)(0.25f * 1000f));
+            await Task.Delay((int)(0.10f * 1000f));
             SfxCmd.Play("res://Yuri/sfx/swing_1.wav");
             await Task.Delay((int)(0.05f * 1000f));
             YuriExtensions.CombatHelpers.YuriFakeHit(ownerCreature, play.Target, "res://Yuri/sfx/hit_3.wav", null,"savage_wolf_hit"); //7.5
@@ -227,7 +230,9 @@ public class SavageWolfFury() : YuriCard(0, CardType.Attack,
         await MysticArteCinematic.End(
             RunManager.Instance.NetService.NetId
         );
-
+        await FatalStrikePower.CheckAfterCardApplication(
+            play.Target
+        );
         OverlimitManager.SetOverlimit(Owner, 0);
         await PowerCmd.Remove<OverlimitPower>(Owner.Creature);
         await PowerCmd.Remove<MysticArteBoostPower>(Owner.Creature);

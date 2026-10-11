@@ -54,9 +54,9 @@ public class BrutalFang() : YuriCard(0, CardType.Attack,
             float distance = yuri.DistanceToTarget(ownerCreature, play.Target);
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             SfxCmd.Play("res://Yuri/sounds/artes/brutal_fang.wav");
             yuri.PlayAnimation(ownerCreature, "brutal_fang");
             

@@ -12,12 +12,14 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Audio;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using Yuri.YuriCode.Cards.Ancient;
 using Yuri.YuriCode.Character;
+using Yuri.YuriCode.Extensions;
 using Yuri.YuriCode.Mechanics;
 using Yuri.YuriCode.Powers;
 
@@ -106,12 +108,46 @@ public abstract class ArteRelicBase : YuriRelic
         return Task.CompletedTask;
     }
 
+    public override async Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (Owner.GetRelic<SpecialFlagA>() != null ||
+            Owner.GetRelic<SpecialFlagB>() != null)
+            return;
+
+        if (player == Owner.Creature.Player && combatState.RoundNumber <= 1)
+        {
+            var cards = new List<CardModel>
+            {
+                combatState.CreateCard(ModelDb.Card<PlayAnimation>(), player),
+                combatState.CreateCard(ModelDb.Card<SkipAnimation>(), player)
+            };
+
+            var selectedCard = await CardSelectCmd.FromChooseACardScreen(
+                new BlockingPlayerChoiceContext(),
+                cards,
+                player);
+
+            if (selectedCard is PlayAnimation)
+            {
+                await RelicCmd.Obtain<SpecialFlagA>(player);
+            }
+            else if (selectedCard is SkipAnimation)
+            {
+                await RelicCmd.Obtain<SpecialFlagB>(player);
+            }
+        }
+    }
+
     public override Task AfterCombatEnd(CombatRoom room)
     {
         /*
          * Capture the final Combo before resetting it.
          * This value is used for post-combat reward thresholds.
          */
+        UpdateDisplay();
         PendingRewardCombo = Combo;
 
         /*
@@ -125,7 +161,9 @@ public abstract class ArteRelicBase : YuriRelic
 
         ComboInternal = 0;
         Status = RelicStatus.Normal;
-
+        
+        OverlimitMusic.Stop();
+        
         _addedComboGoldReward = false;
 
         if (Owner.Character is Character.Yuri yuri)

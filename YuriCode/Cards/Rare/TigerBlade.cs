@@ -47,9 +47,9 @@ public class TigerBlade() : YuriCard(1, CardType.Attack,
                 );
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             SfxCmd.Play("res://Yuri/sounds/artes/tiger_blade.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "tiger_blade").total;
             await Task.Delay((int)(0.117f * 1000f));

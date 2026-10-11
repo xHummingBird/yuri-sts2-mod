@@ -53,9 +53,9 @@ public class AzureWolfStrike() : YuriCard(1, CardType.Attack,
                 );
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             SfxCmd.Play("res://Yuri/sounds/artes/azure_wolf_strike.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "azure_wolf").total;
             await Task.Delay((int)(0.2f * 1000f));

@@ -51,9 +51,9 @@ public class DragonSwarm() : YuriCard(3, CardType.Attack,
                 );
             
             if (distance < 200f)
-                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
+                await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f, forceMove: true, durationSeconds: 0.05f, overrideAnim: "retreat");
             
-            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 200f);
+            await yuri.YuriDashTo(ownerCreature, play.Target, distance: 250f);
             SfxCmd.Play("res://Yuri/sounds/artes/dragon_swarm.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "dragon").total;
             await Task.Delay((int)(0.067f * 1000f));

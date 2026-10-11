@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -7,12 +8,13 @@ using Yuri.YuriCode.Extensions;
 
 namespace Yuri.YuriCode.Cards.Ancient;
 
-public class SkipAnimation() : YuriCard(0, CardType.Skill,
-    CardRarity.Token, TargetType.Self)
+public class SkipAnimation() : YuriCard(-1, CardType.Status,
+    CardRarity.Status, TargetType.None)
 {
+    public override bool CanBeGeneratedInCombat => false;
+    
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-   
     }
 
     protected override void OnUpgrade()

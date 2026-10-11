@@ -9,5 +9,5 @@
   "YURI_BASE_ARTE.description": "Base Artes boost the next Arcane Arte and contribute their listed Combo count.",
 
   "YURI_ARCANE_ARTE.title": "Arcane Arte",
-  "YURI_ARCANE_ARTE.description": "Arcane Artes contribute their listed Combo count and apply additional effects if played after a Base Arte. Arcane Artes always trigger [gold]Fatal Strike[/gold]."
+  "YURI_ARCANE_ARTE.description": "Arcane Artes contribute their listed Combo count and apply additional effects if played after a Base Arte. Arcane Artes and [gold]Savage Wolf Fury[/gold] always trigger [gold]Fatal Strike[/gold]."
 }
