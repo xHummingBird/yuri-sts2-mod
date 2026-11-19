@@ -1,7 +1,9 @@
 using System.Reflection;
+using BaseLib.Config;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using Yuri.YuriCode.Extensions;
 
 namespace Yuri.YuriCode;
 
@@ -20,5 +22,9 @@ public partial class MainFile : Node
         var assembly = Assembly.GetExecutingAssembly();
         Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(assembly);
         harmony.PatchAll(assembly);
+        
+        ModConfigRegistry.Register(
+            ModId,
+            new YuriConfig());
     }
 }

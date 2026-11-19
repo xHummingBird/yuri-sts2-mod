@@ -65,7 +65,7 @@ public class OverlimitPower : YuriPower
         var yuri = Owner?.Player.Character as Character.Yuri;
         if (ownerCreature != null && yuri != null)
         {
-            OverlimitMusic.Play();
+            OverlimitMusic.Play(Owner.Player.NetId);
             SfxCmd.Play("res://Yuri/sounds/overlimit.wav");
             SfxCmd.Play("res://Yuri/sfx/mystic_arte_activate_2.wav");
             float duration = yuri.PlayAnimation(ownerCreature, "overlimit").total;

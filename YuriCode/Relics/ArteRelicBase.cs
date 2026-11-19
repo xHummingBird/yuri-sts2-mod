@@ -162,7 +162,7 @@ public abstract class ArteRelicBase : YuriRelic
         ComboInternal = 0;
         Status = RelicStatus.Normal;
         
-        OverlimitMusic.Stop();
+        OverlimitMusic.Stop(Owner.NetId);
         
         _addedComboGoldReward = false;
 
@@ -332,7 +332,7 @@ public abstract class ArteRelicBase : YuriRelic
 
         object? repeatVar = GetPropertyValue(
             dynamicVars,
-            "Repeat");
+            "HitCount");
 
         if (repeatVar == null)
             return null;

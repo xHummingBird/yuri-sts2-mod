@@ -19,7 +19,7 @@ public class ThreeHitCombo() : YuriCard(2, CardType.Attack,
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(3, ValueProp.Move),
-        new RepeatVar(3)
+        new HitCountVar(3)
     ];
 
     protected override async Task OnPlay(

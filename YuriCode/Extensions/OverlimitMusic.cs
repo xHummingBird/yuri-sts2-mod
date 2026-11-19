@@ -2,6 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Audio;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
 
 namespace Yuri.YuriCode.Extensions;
@@ -20,18 +21,29 @@ public static class OverlimitMusic
         GodotObject.IsInstanceValid(_player) &&
         _player.Playing;
 
-    public static void Play()
+    // ============================================================
+    // PLAY
+    // ============================================================
+
+    public static void Play(
+        ulong netId)
     {
+        if (!YuriConfig.EnableOverlimitMusic)
+            return;
+
         /*
-         * Do not call Stop() here because Stop() resumes vanilla music.
-         * We only need to clean up the previous Overlimit player.
+         * Synced Power hooks may execute on every client.
+         * Only play the music when the Power belongs to this client.
+         */
+        if (!IsLocalPlayer(netId))
+            return;
+
+        /*
+         * Do not call the public Stop() here because that would resume
+         * vanilla music before immediately stopping it again.
          */
         StopPlayer();
 
-        /*
-         * Stops only the game's current FMOD music.
-         * This does not change the user's BGM setting and does not mute SFX.
-         */
         StopVanillaMusicOnly();
 
         AudioStream? stream =
@@ -56,13 +68,7 @@ public static class OverlimitMusic
             {
                 Name = "YuriOverlimitMusic",
                 Stream = stream,
-
-                /*
-                 * Use Master rather than SFX.
-                 * Its volume is manually scaled using the BGM setting.
-                 */
                 Bus = "Master",
-
                 VolumeDb =
                     ScaleDbByBgmSetting(
                         MusicVolume)
@@ -72,7 +78,9 @@ public static class OverlimitMusic
 
         player.Finished += () =>
         {
-            if (ReferenceEquals(_player, player))
+            if (ReferenceEquals(
+                    _player,
+                    player))
             {
                 _player = null;
             }
@@ -83,15 +91,23 @@ public static class OverlimitMusic
             }
         };
 
-        Node? parent = NRun.Instance;
+        Node? parent =
+            NRun.Instance;
 
         if (parent == null)
-            parent = NGame.Instance;
+        {
+            parent =
+                NGame.Instance;
+        }
 
         if (parent == null)
         {
             _player = null;
-            player.QueueFree();
+
+            if (GodotObject.IsInstanceValid(player))
+            {
+                player.QueueFree();
+            }
 
             ResumeVanillaMusic();
             return;
@@ -101,38 +117,51 @@ public static class OverlimitMusic
         player.Play();
 
         GD.Print(
-            $"Playing looping Yuri Overlimit music: {MusicPath}");
+            $"Playing looping Yuri Overlimit music for local player {netId}: " +
+            MusicPath);
     }
 
-    public static void Stop()
+    // ============================================================
+    // STOP
+    // ============================================================
+
+    public static void Stop(
+        ulong netId)
     {
-        bool wasPlaying =
+        /*
+         * Another player's Overlimit ending must not stop the local
+         * player's Overlimit music.
+         */
+        if (!IsLocalPlayer(netId))
+            return;
+
+        bool hadPlayer =
             _player != null &&
             GodotObject.IsInstanceValid(_player);
 
         StopPlayer();
 
-        /*
-         * Only resume vanilla music if this class actually had an
-         * Overlimit music player. This prevents repeated Stop() calls
-         * from restarting the current track.
-         */
-        if (wasPlaying)
+        if (hadPlayer)
         {
             ResumeVanillaMusic();
-        }
 
-        GD.Print(
-            "Stopped Yuri Overlimit music");
+            GD.Print(
+                $"Stopped Yuri Overlimit music for local player {netId}");
+        }
     }
+
+    // ============================================================
+    // PLAYER CLEANUP
+    // ============================================================
 
     private static void StopPlayer()
     {
-        AudioStreamPlayer? player = _player;
+        AudioStreamPlayer? player =
+            _player;
 
         /*
-         * Clear the field first so deferred callbacks cannot process
-         * the same player twice.
+         * Clear the static reference first so deferred callbacks cannot
+         * process the same player twice.
          */
         _player = null;
 
@@ -146,13 +175,33 @@ public static class OverlimitMusic
         player.QueueFree();
     }
 
+    // ============================================================
+    // LOCAL PLAYER CHECK
+    // ============================================================
+
+    private static bool IsLocalPlayer(
+        ulong netId)
+    {
+        return RunManager.Instance != null
+            && RunManager.Instance.NetService != null
+            && netId ==
+               RunManager.Instance.NetService.NetId;
+    }
+
+    // ============================================================
+    // VOLUME
+    // ============================================================
+
     public static void RefreshVolume()
     {
         if (_player == null)
             return;
 
         if (!GodotObject.IsInstanceValid(_player))
+        {
+            _player = null;
             return;
+        }
 
         _player.VolumeDb =
             ScaleDbByBgmSetting(
@@ -172,15 +221,21 @@ public static class OverlimitMusic
             return -80f;
 
         float linearVolume =
-            Mathf.DbToLinear(baseVolumeDb);
+            Mathf.DbToLinear(
+                baseVolumeDb);
 
-        linearVolume *= bgmSetting;
+        linearVolume *=
+            bgmSetting;
 
         return Mathf.LinearToDb(
             Math.Max(
                 linearVolume,
                 0.0001f));
     }
+
+    // ============================================================
+    // VANILLA MUSIC
+    // ============================================================
 
     private static void StopVanillaMusicOnly()
     {
@@ -190,13 +245,16 @@ public static class OverlimitMusic
         if (controller == null)
             return;
 
-        Node? proxy =
+        var proxyField =
             AccessTools.Field(
-                    typeof(NRunMusicController),
-                    "_proxy")
-                .GetValue(controller) as Node;
+                typeof(NRunMusicController),
+                "_proxy");
 
-        proxy?.Call("stop_music");
+        if (proxyField?.GetValue(controller) is not Node proxy)
+            return;
+
+        proxy.Call(
+            "stop_music");
     }
 
     private static void ResumeVanillaMusic()
@@ -207,33 +265,43 @@ public static class OverlimitMusic
         if (controller == null)
             return;
 
-        Node? proxy =
+        var proxyField =
             AccessTools.Field(
-                    typeof(NRunMusicController),
-                    "_proxy")
-                .GetValue(controller) as Node;
+                typeof(NRunMusicController),
+                "_proxy");
+
+        var currentTrackField =
+            AccessTools.Field(
+                typeof(NRunMusicController),
+                "_currentTrack");
+
+        if (proxyField?.GetValue(controller) is not Node proxy)
+            return;
 
         string? currentTrack =
-            AccessTools.Field(
-                    typeof(NRunMusicController),
-                    "_currentTrack")
-                .GetValue(controller) as string;
+            currentTrackField?.GetValue(controller)
+                as string;
 
-        proxy?.Call("stop_music");
+        proxy.Call(
+            "stop_music");
 
         if (string.IsNullOrEmpty(currentTrack))
             return;
 
-        proxy?.Call(
+        proxy.Call(
             "update_music",
             currentTrack);
 
-        proxy?.Call(
+        proxy.Call(
             "update_global_parameter",
             "Progress",
             7);
     }
 }
+
+// ================================================================
+// BGM SLIDER SYNC
+// ================================================================
 
 [HarmonyPatch(
     typeof(NAudioManager),
